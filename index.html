@@ -8915,17 +8915,15 @@ function Home({ onStart, onViewAnalytics, onResetProgress, stats, starred, answe
         </p>
       </section>
 
-      {/* Stats strip — 點擊進分析頁 */}
-      <button
-        onClick={() => onViewAnalytics && onViewAnalytics()}
-        className="w-full grid grid-cols-2 md:grid-cols-4 gap-px mb-3 surface overflow-hidden rounded-lg text-left card-hover"
-        title="查看作答分析"
+      {/* Stats strip — 純顯示 */}
+      <div
+        className="w-full grid grid-cols-2 md:grid-cols-4 gap-px mb-3 surface overflow-hidden rounded-lg"
       >
         <Stat label="Total Bank" value={totalCount} suffix="題" />
         <Stat label="Answered" value={answeredCount} suffix="題" />
         <Stat label="Accuracy" value={accuracy} suffix="%" highlight={accuracy >= 70} />
         <Stat label="Starred" value={starred.length} suffix="題" />
-      </button>
+      </div>
 
       {/* 兩個主要動作按鈕 */}
       <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 mb-12">
