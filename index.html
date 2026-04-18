@@ -3516,6 +3516,578 @@ const QUESTIONS = [
         }
       ]
     }
+  },
+  {
+    "id": "114-1-061",
+    "year": 114,
+    "session": 1,
+    "number": 61,
+    "category": "電學診斷",
+    "question": "在常規的神經電生理檢查中，在以最大強度刺激脛神經並從腓腸肌記錄時，出現了數個 F-wave，但這些 F-wave 的潛伏期和波形變化很大。為了區分 F 波和背景運動單元活動 (background motor unit activity)，最合適的下一步是：",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "將刺激持續時間增加至 5 毫秒"
+      },
+      {
+        "key": "B",
+        "text": "將刺激強度降低至次最大強度 (submaximal stimulation)"
+      },
+      {
+        "key": "C",
+        "text": "將刺激頻率增加至每秒一次以上"
+      },
+      {
+        "key": "D",
+        "text": "調高肌電圖機器的音量，並在刺激器離開皮膚時放電 (discharge)"
+      },
+      {
+        "key": "E",
+        "text": "請病人進行輕微的腓腸肌自主收縮"
+      }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "**F-wave 是 stimulus-locked 反應**（與刺激時間綁定）。「將刺激器離開皮膚後再放電」可以觀察訊號是否仍出現——若是真正的 F-wave，離開皮膚後就不會再出現；若是背景 volitional MU activity，即使沒刺激也會繼續放電。調高音量更容易聽到時間關聯。",
+      "detail": "**F-wave 基本原理**：\n\n- 最大（supramaximal）強度刺激運動神經\n- 產生 **orthodromic**（順行）衝動 → 肌肉（M-wave）\n- 同時 **antidromic**（逆行）衝動傳回 α motor neuron\n- 部分 α motor neuron 被反向激發後「backfire」\n- 再向下傳 → 產生 **F-wave**\n\n**F-wave 特徵**：\n- **變異性大**（每次激發的 motor unit 不同）\n- Latency 有範圍\n- Amplitude 小（< M-wave 5%）\n- **Stimulus-locked**：必定在刺激後某固定時間範圍內出現\n\n**本題情境**：\n- F-wave 看到但 morphology 和 latency 都變異很大\n- 懷疑有背景 volitional MU activity 混入（病人沒完全放鬆）\n\n**區分方法**：\n\n**(D) ✓** 調高音量 + 觀察刺激 artifact：\n- 真的 F-wave：一定跟在 stimulus artifact 之後\n- 背景 MU activity：**即使沒刺激也會出現**\n- 把刺激器離開皮膚（不刺激）觀察 → 仍有訊號 = 背景 volitional activity\n- 聽音量也有幫助辨識（volitional activity 有聲音連續性）\n\n**(A) ✗** 增加 stimulus duration 到 5 ms：\n- 不會幫助區分\n- 反而可能增大 stimulus artifact 污染波形\n\n**(B) ✗** 降低刺激強度：\n- F-wave 需要 **supramaximal stimulation** 才穩定、才可重複\n- 降低強度會讓 F-wave 消失或更不穩定\n- 不能區分\n\n**(C) ✗** 增加刺激頻率（> 1 Hz）：\n- F-wave 會**習慣化（habituation）**，amplitude 下降\n- 正確頻率是 **0.5 Hz**（每 2 秒一次）\n- 不能區分\n\n**(E) ✗** 請病人做輕微自主收縮：\n- 這會**增加**背景 MU activity，更難區分\n- 相反的做法：應該請病人完全放鬆\n- （輕微收縮是用在 H-reflex 輔助或 single fiber EMG）\n\n**F-wave 臨床應用**：\n\n| 用途 | 意義 |\n|---|---|\n| Minimal F latency 延長 | Demyelinating neuropathy (CIDP、GBS) |\n| F-wave absent / low persistence | 近端運動神經病變 / GBS 早期 |\n| F-wave chronodispersion 增加 | Demyelination |\n| Persistence（出現率）< 50% | 異常 |\n\n**F-wave vs H-reflex 複習**：\n\n| 特徵 | F-wave | H-reflex |\n|---|---|---|\n| 刺激強度 | **Supramaximal** | **Submaximal** |\n| 刺激 duration | 短（0.1-0.2 ms） | **長（0.5-1 ms）** |\n| 機制 | Motor 逆行 backfire | Ia 感覺單突觸反射 |\n| 頻率 | 0.5 Hz | 0.1-0.2 Hz |\n| 主要肌肉 | 多數運動神經 | Soleus（主）、FCR |",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 7 \"Electrodiagnostic Medicine\"",
+          "url": null
+        },
+        {
+          "text": "Preston DC, Shapiro BE. Electromyography and Neuromuscular Disorders, 4th ed., Ch. 4",
+          "url": null
+        },
+        {
+          "text": "Fisher MA. F-waves – physiology and clinical uses. ScientificWorldJournal 2007;7:144",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/17334607/"
+        },
+        {
+          "text": "Kimura J. Electrodiagnosis in Diseases of Nerve and Muscle, 4th ed.",
+          "url": null
+        },
+        {
+          "text": "AANEM Glossary of Terms in Electrodiagnostic Medicine (2015)",
+          "url": "https://www.aanem.org/getmedia/8ce21bc1-0bce-47a7-ad3c-5c8bb9be3a28/Glossary-of-Terms-Revised-July2015.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-062",
+    "year": 114,
+    "session": 1,
+    "number": 62,
+    "category": "電學診斷",
+    "question": "一位 37 歲的網球選手出現肩關節外展與外旋無力，並伴隨深層肩後部疼痛。檢查發現棘下肌萎縮，感覺神經檢查正常，計畫進行電學診斷檢查。下列何項電學診斷結果最能支持病灶位於肩胛盂棘切跡 (spinoglenoid notch)，而非肩胛上切跡 (suprascapular notch) 或更近端的病變？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "針極肌電圖顯示棘上肌與棘下肌皆有異常自發性活動，但頸椎旁肌正常"
+      },
+      {
+        "key": "B",
+        "text": "針極肌電圖異常僅出現於棘下肌，棘上肌正常，且外側前臂皮神經感覺神經傳導正常"
+      },
+      {
+        "key": "C",
+        "text": "以表面電極記錄棘上肌，在 Erb 點刺激時出現 CMAP 波幅下降與潛伏期延長"
+      },
+      {
+        "key": "D",
+        "text": "三角肌與肱二頭肌出現去神經電位，但棘上肌與棘下肌正常"
+      },
+      {
+        "key": "E",
+        "text": "針極肌電圖異常出現於棘下肌及棘上肌，且外側前臂皮神經感覺神經傳導異常"
+      }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "Suprascapular nerve 先在 **suprascapular notch** 分支給棘上肌，再走到 **spinoglenoid notch** 分支給棘下肌。若病灶在 **spinoglenoid notch**（較遠端），只影響**棘下肌**；棘上肌保留。LABCN（musculocutaneous n. 的感覺分支）正常可排除 upper trunk 或 C5-C6 根病變。",
+      "detail": "**Suprascapular Nerve（肩胛上神經）解剖軌跡**：\n\n起源：上臂叢 **upper trunk (C5-C6)**\n\n**走向**：\n\n1. Upper trunk → 超肩鎖骨\n2. 穿越 **suprascapular ligament**\n3. 通過 **Suprascapular notch（肩胛上切跡）**\n4. → **分支給 supraspinatus（棘上肌）**\n5. 繼續沿肩胛骨後側\n6. 通過 **Spinoglenoid notch（肩胛盂棘切跡）**\n7. → **分支給 infraspinatus（棘下肌）**\n\n**病灶定位表**：\n\n| 病灶位置 | Supraspinatus | Infraspinatus | LABCN | Deltoid/Biceps |\n|---|---|---|---|---|\n| **Spinoglenoid notch** | **正常** | **異常** | 正常 | 正常 |\n| Suprascapular notch | 異常 | 異常 | 正常 | 正常 |\n| Upper trunk | 異常 | 異常 | **異常** | 異常 |\n| C5-C6 radiculopathy | 異常 | 異常 | 可能正常 | 異常 + paraspinal 異常 |\n\n**為什麼 LABCN 是關鍵？**\n\n- **Lateral Antebrachial Cutaneous Nerve**：Musculocutaneous nerve 的感覺終支\n- 路徑：upper trunk → lateral cord → musculocutaneous → LABCN\n- **LABCN sensory NCS 正常 → 排除 upper trunk 病變**\n- **LABCN sensory NCS 異常 → 支持 upper trunk 或近端病變**\n\n**各選項分析**：\n\n**(A) ✗** 棘上 + 棘下都異常：支持 suprascapular notch 或更近端，不是 spinoglenoid\n\n**(B) ✓** 僅棘下肌異常 + 棘上肌正常 + LABCN 正常：\n- 棘下肌異常：病灶在 spinoglenoid notch 之後\n- 棘上肌正常：病灶在 suprascapular notch **之後**（已分支給棘上肌）\n- LABCN 正常：排除 upper trunk\n- **最特異性支持 spinoglenoid notch 病變**\n\n**(C) ✗** 棘上肌 CMAP 異常 → 病灶在 suprascapular notch 或更近端\n\n**(D) ✗** 三角肌（axillary n.）+ 肱二頭肌（musculocutaneous n.）異常 → 典型 **C5 radiculopathy 或 upper trunk plexopathy**\n\n**(E) ✗** 棘上+棘下+LABCN 都異常 → upper trunk 病變\n\n**Spinoglenoid Notch Syndrome 臨床要點**：\n\n**常見原因**：\n- **Paralabral cyst**（最典型！盂唇撕裂後關節液滲出形成囊腫）\n- 反覆過頂動作（排球、網球、投球）\n- 外傷\n\n**臨床表現**：\n- **外旋無力**（infraspinatus 是主要外旋肌）\n- 外展無力較輕（supraspinatus 保留）\n- **深層肩後疼痛**（神經性）\n- **棘下肌萎縮可見**\n- 感覺正常（suprascapular n. 無皮膚感覺支配）\n\n**影像**：超音波 / MRI 常可見 paralabral cyst\n\n**治療**：\n- 保守：肌力訓練、休息\n- 手術：囊腫抽吸 + 盂唇修復 + 神經減壓",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 40 \"Upper Limb Musculoskeletal Disorders\"",
+          "url": null
+        },
+        {
+          "text": "Preston DC, Shapiro BE. Electromyography and Neuromuscular Disorders, 4th ed., Ch. 24",
+          "url": null
+        },
+        {
+          "text": "Piasecki DP et al. Suprascapular neuropathy. J Am Acad Orthop Surg 2009;17:665",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19880677/"
+        },
+        {
+          "text": "Ferretti A et al. Suprascapular neuropathy in volleyball players. J Bone Joint Surg Am 1987;69:260",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/3805088/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-063",
+    "year": 114,
+    "session": 1,
+    "number": 63,
+    "category": "電學診斷",
+    "question": "一位 52 歲的上班族女性，主訴右手拇指、食指與中指在夜間麻木與刺痛。理學檢查顯示拇指外展力量輕微下降，但未見明顯魚際肌萎縮。神經傳導檢查結果如下：\n\n• 手腕處刺激正中神經，APB 記錄：振幅 2.0 mV，遠端潛伏期 6.5 ms\n• 手掌處刺激正中神經：振幅 7.0 mV，潛伏期 2.5 ms\n• 肘窩處刺激正中神經：振幅 2.2 mV，潛伏期 10.2 ms\n• 從食指記錄的正中神經 SNAP：振幅 3.0 µV，峰值潛伏期 4.0 ms\n\n下列何者最能解釋這些電學診斷結果的變化？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "正中神經遠端嚴重軸突損傷 (axon loss)"
+      },
+      {
+        "key": "B",
+        "text": "穿越腕隧道的傳導阻滯 (conduction block)，軸突整體保存良好"
+      },
+      {
+        "key": "C",
+        "text": "電極擺放不當造成的技術性假象 (technique artifact)"
+      },
+      {
+        "key": "D",
+        "text": "合併 Martin-Gruber 氏吻合 (Martin-Gruber anastomosis) 導致運動傳導結果改變"
+      },
+      {
+        "key": "E",
+        "text": "正中神經近端壓迫導致的前行性軸突變性 (antegrade axonal degeneration)"
+      }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "**Palm 刺激（遠端）CMAP 7.0 mV 正常**、**Wrist 刺激（近端）CMAP 2.0 mV 下降約 71%**，振幅大幅下降橫跨腕隧道 + 遠端 latency 延長（6.5 ms，正常 < 4.2）→ 典型的 **conduction block across carpal tunnel**（脫髓鞘變化，軸突完整）。",
+      "detail": "**本題 NCS 資料判讀**：\n\n**Motor NCS（Median n., recording APB）**：\n\n| 刺激部位 | Amplitude | Latency |\n|---|---|---|\n| **Palm**（遠端於腕隧道） | **7.0 mV**（接近正常） | 2.5 ms（正常） |\n| **Wrist**（近端於腕隧道） | **2.0 mV**（降 71%） | **6.5 ms**（延長，正常 < 4.2） |\n| Elbow | 2.2 mV | 10.2 ms |\n\n**關鍵計算**：\n- Wrist-to-Palm CMAP 下降：(7.0-2.0)/7.0 = **71% drop**\n- 符合 conduction block 標準（> 50% drop across focal lesion）\n\n**Axon loss vs Conduction Block 核心區別**：\n\n| 特徵 | Axon Loss | **Conduction Block (脫髓鞘)** |\n|---|---|---|\n| **遠端刺激 CMAP** | **下降**（遠端軸突也不見了） | **正常** |\n| 近端刺激 CMAP | 下降 | **大幅下降** |\n| CMAP drop across lesion | 近=遠，兩側都低 | **> 50% drop** |\n| 遠端 latency | 可能略延 | **明顯延長**（脫髓鞘→傳導變慢） |\n| 預後 | 差（需 reinnervation） | **好**（脫髓鞘可回復） |\n| 針極 EMG | 有 denervation | 無 denervation |\n\n**各選項分析**：\n\n**(A) ✗ 嚴重 axon loss**：\n- 若軸突喪失，**遠端刺激 CMAP 也應下降**\n- 本題 Palm 刺激 = 7.0 mV（正常）→ 遠端軸突完好\n- 排除\n\n**(B) ✓ Conduction Block across carpal tunnel**：\n- 完全符合資料：\n  - 遠端正常（軸突保留）\n  - 近端 CMAP 大幅下降\n  - Latency 明顯延長（脫髓鞘）\n- 這是**典型中度 CTS**的電診表現\n\n**(C) ✗ 技術性假象**：\n- 系統性差異太明顯（兩端差 5 mV，一個方向）\n- 不像技術問題\n\n**(D) ✗ Martin-Gruber anastomosis (MGA)**：\n- MGA：前臂 median → ulnar 的異常交通支\n- 典型表現：**近端刺激 CMAP 較遠端大**（多了 ulnar 訊號）\n- 本題相反，排除\n\n**(E) ✗ 近端壓迫 + antegrade degeneration**：\n- 若近端壓迫造成 axonal degeneration，**遠端軸突也會退化**\n- 最終 Palm CMAP 也會下降\n- 本題 Palm 正常，排除\n\n**Padua CTS 分級（依神經電診嚴重度）**：\n\n| Grade | 表現 |\n|---|---|\n| 1 極輕度（minimal） | 只有 sensory 異常（comparative study +） |\n| 2 輕度（mild） | SNAP + motor DML 異常 |\n| **3 中度（moderate）** | **Sensory + motor 異常 + conduction block** ← 本題 |\n| 4 重度（severe） | SNAP 消失 + motor DML 異常 |\n| 5 極重度（extreme） | Sensory + motor 都 absent |\n| 6 末期（minimal/absent） | 幾乎無反應 |\n\n**預後考量**：\n- 本題 CTS 屬中度，有脫髓鞘但軸突保留\n- 保守治療（夾板、類固醇注射）有效機會較高\n- 若轉成 axonal loss（預後較差），會看到 APB 萎縮、Palm CMAP 也下降\n- 建議 6-12 週 follow-up，惡化考慮手術",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 7 \"Electrodiagnostic Medicine\"",
+          "url": null
+        },
+        {
+          "text": "Preston DC, Shapiro BE. Electromyography and Neuromuscular Disorders, 4th ed., Ch. 20",
+          "url": null
+        },
+        {
+          "text": "Olney RK. Consensus criteria for partial conduction block. Muscle Nerve 1999;22(Suppl 8):S225",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10219823/"
+        },
+        {
+          "text": "Stevens JC. AAEM minimonograph #26: Electrodiagnosis of CTS. Muscle Nerve 1997;20:1477",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9390659/"
+        },
+        {
+          "text": "Padua L et al. Neurophysiologic classification of carpal tunnel syndrome. Acta Neurol Scand 1997;96:211",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9325471/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-064",
+    "year": 114,
+    "session": 1,
+    "number": 64,
+    "category": "電學診斷",
+    "question": "一位 20 歲男性，無慢性病，三個月前開始出現右手伸指肌無力以及垂腕的症狀，病人並無感覺異常，屈指肌及屈曲手腕肌力正常，且上肢反射亦均正常。下列有關該病人的症狀、檢查、以及診斷，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "須列入鑑別診斷：C7 radiculopathy、後索病變、橈神經於腋下/螺旋溝之病變、PIN 等"
+      },
+      {
+        "key": "B",
+        "text": "執行神經傳導速度檢查時，最好能與健側比較"
+      },
+      {
+        "key": "C",
+        "text": "若要排除 C7 神經根病變，則可選擇橈側屈腕肌 (FCR) 或旋前圓肌 (PT) 扎針"
+      },
+      {
+        "key": "D",
+        "text": "若懷疑 PIN，可安排超音波檢查壓迫處"
+      },
+      {
+        "key": "E",
+        "text": "若病人為 PIN，則身體檢查會發現手腕會向尺側偏移 (ulnar deviation)"
+      }
+    ],
+    "answer": "E",
+    "explanation": {
+      "summary": "**PIN 病變時，手腕伸展會偏「橈側 (radial)」**，不是尺側。因為 **ECRL**（由 radial n. 主幹支配，不經過 PIN）保留，而 **ECU**（由 PIN 支配）無力，伸腕時被 ECRL 拉向橈側偏移。",
+      "detail": "**Radial Nerve 分支順序（由近至遠）**：\n\n1. **在 axilla**：triceps（medial, long, lateral heads）\n2. **Spiral groove 之前**：triceps 分支大多已分出\n3. **Spiral groove**：穿 lateral intermuscular septum\n4. **Radial tunnel / 肘前**：分為兩支：\n   - **Radial nerve 主幹（superficial radial, 感覺）**\n   - **PIN（posterior interosseous nerve, 純運動）**\n5. Supinator：PIN 穿過 Arcade of Frohse\n\n**關鍵：誰由 PIN 支配，誰不是？**\n\n**不經過 PIN（仍由 radial 主幹）**：\n- **Brachioradialis (BR)**\n- **ECRL（Extensor Carpi Radialis Longus）** ← 非常重要！\n- Supinator 的部分分支\n\n**由 PIN 支配**：\n- ECRB（Extensor Carpi Radialis Brevis，部分研究）\n- **Supinator**（Arcade of Frohse 之後）\n- **ECU（Extensor Carpi Ulnaris）** ← 關鍵！\n- **EDC（Extensor Digitorum Communis）**\n- EDM（Extensor Digiti Minimi）\n- **APL、EPB、EPL**（拇指伸展）\n- **EIP（Extensor Indicis Proprius）**\n\n**PIN 病變的伸腕表現**：\n\n- **ECRL 正常**：拉腕橈側屈（**radial deviation**）\n- **ECU 無力**：本應平衡到尺側屈\n- **淨效果：伸腕時偏橈側**（radial deviation）\n\n→ 選項 (E) 說尺側偏移，**方向相反，錯誤**\n\n**各選項分析**：\n\n**(A) ✓ 鑑別診斷範圍**：\n- C7 radiculopathy：可能影響伸肌（C7 多 innervate triceps + 伸肌）\n- Posterior cord lesion：Radial + axillary 都受影響\n- Radial axilla：全部 radial innervated 都受影響，含 triceps\n- Radial spiral groove：triceps 保留但其他 radial 肌肉受影響\n- PIN：BR、ECRL、triceps 保留，其他伸肌受影響\n- 都合理\n\n**(B) ✓** NCS 與健側對照是電診常規（排除個體變異）\n\n**(C) ✓ 排除 C7 radiculopathy 的肌肉選擇**：\n- FCR（Flexor Carpi Radialis）：Median n. 支配，**C6-C7 根**\n- PT（Pronator Teres）：Median n. 支配，**C6-C7 根**\n- 這些肌肉若異常 → 支持 C7 radiculopathy（同一節神經根分布）\n- 若正常 → 排除 C7 radiculopathy（病灶不在根部）\n- 適合的鑑別工具\n\n**(D) ✓ 超音波檢查 PIN 壓迫**：\n- PIN 最常壓迫於 **Arcade of Frohse**（supinator 近端腱膜）\n- 其他原因：脂肪瘤、神經節囊腫\n- 超音波可動態觀察\n\n**(E) ✗** 如上所述，PIN 病變手腕偏**橈側**\n\n**進階：PIN vs 其他 Radial 病變的鑑別**\n\n| 肌肉 | Axilla | Spiral groove | PIN |\n|---|---|---|---|\n| Triceps | 異常 | **正常** | 正常 |\n| BR | 異常 | 異常/可能保留 | **正常** |\n| ECRL | 異常 | 異常 | **正常** |\n| EDC | 異常 | 異常 | **異常** |\n| ECU | 異常 | 異常 | **異常** |\n| 感覺（手背橈側） | 異常 | 異常 | **正常**（純運動） |\n\n**垂腕（Wrist Drop）**：\n- Full wrist drop：Axilla / spiral groove lesion（ECRL 也受影響）\n- **Partial wrist drop + radial deviation**：PIN lesion（ECRL 保留）\n- Finger drop only + wrist extension OK：**典型 PIN**\n\n**Radial Tunnel Syndrome（RTS）**：\n- 同樣在 supinator 區域\n- **疼痛為主**，**無明顯無力**\n- 常與 tennis elbow 混淆或共存\n- 電診通常正常",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 40 \"Upper Limb Musculoskeletal Disorders\"",
+          "url": null
+        },
+        {
+          "text": "Preston DC, Shapiro BE. Electromyography and Neuromuscular Disorders, 4th ed., Ch. 22",
+          "url": null
+        },
+        {
+          "text": "Dang AC, Rodner CM. Unusual compression neuropathies of the forearm, Part I: Radial nerve. J Hand Surg Am 2009;34:1906",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19942088/"
+        },
+        {
+          "text": "Stanley J. Radial tunnel syndrome: a surgeon's perspective. J Hand Ther 2006;19:180",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16713868/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-065",
+    "year": 114,
+    "session": 1,
+    "number": 65,
+    "category": "電學診斷",
+    "question": "下列有關電學檢查 H 反射 (H reflex) 之敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "必須雙側進行比較，若 H latency 兩側相差超過 1.5 ms 則視為有顯著差異。檢查時，兩側刺激電極及紀錄電極的距離必須相同"
+      },
+      {
+        "key": "B",
+        "text": "電刺激之 duration 必須小於 0.4 ms，避免刺激到 Ia fibers"
+      },
+      {
+        "key": "C",
+        "text": "操作時，於膕窩處刺激脛神經，並於比目魚肌與腓腸肌肌腹的交界之處紀錄電位"
+      },
+      {
+        "key": "D",
+        "text": "檢查時，當刺激電量由小到大逐步增加時，會先刺激到 Ia 神經纖維"
+      },
+      {
+        "key": "E",
+        "text": "正常成人並非每條神經或肌肉都可記錄到 H 反射"
+      }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "H reflex 的正確做法：**刺激 duration 長（0.5-1 ms）+ submaximal 低強度**。長 duration 才能**選擇性激發 Ia 大纖維**（閾值低）；**短 duration 反而讓 Ia 不易被激發**。選項 (B) 完全顛倒。",
+      "detail": "**H reflex 刺激參數**：\n\n| 參數 | 正確值 | 選項 (B) 說的 |\n|---|---|---|\n| **Duration** | **長（0.5-1 ms）** | 短 < 0.4 ms ✗ |\n| Intensity | **Submaximal**（低於 M-wave threshold） | — |\n| Frequency | 0.1-0.2 Hz | — |\n| 記錄肌肉 | Soleus（成人） / FCR（上肢） | — |\n\n**為什麼 H reflex 需要長 duration + 低強度？**\n\n**Strength-Duration curve 原理**：\n- 大直徑纖維（**Ia, 12-20 µm**）閾值低，對長 duration 電流較敏感\n- 小直徑運動纖維（α motor）閾值較高\n- 用**長 duration + 低強度**：\n  - 只激發 Ia\n  - Ia orthodromic → 脊髓 → 單突觸 → α motor neuron → H wave\n  - **不激發運動纖維 → 沒有 antidromic 碰撞**\n- 相反地，用**短 duration + 高強度**（用於 CMAP）：\n  - 同時激發運動纖維\n  - **Antidromic collision → H wave 被消除**\n\n**所以 (B) 「duration < 0.4 ms 避免刺激 Ia」完全錯誤**（要短 duration 反而刺激不到 Ia）\n\n**各選項分析**：\n\n**(A) ✓ H reflex 雙側比較**：\n- **Latency 差 > 1.5 ms 為異常**\n- 身高/腿長影響 latency，故兩側**距離必須相同**\n- 通常刺激位置：popliteal fossa\n- 記錄位置：soleus-gastrocnemius junction\n\n**(B) ✗** 如上，方向顛倒\n\n**(C) ✓ 記錄位置**：\n- **Active electrode**：比目魚肌與腓腸肌交界\n- Reference：Achilles tendon\n- Ground：膝蓋區\n\n**(D) ✓ Ia 纖維先被激發**：\n- Ia 直徑最大，閾值最低\n- 電刺激由小到大：\n  - 低強度 → 激發 Ia → **H wave 先出現**\n  - 中強度 → 開始激發運動纖維 → M wave 出現\n  - 高強度 → Antidromic 碰撞 → **H wave 消失**\n  - Supramaximal → 只有 M wave，H wave 不見\n\n**(E) ✓ H reflex 分布**：\n- **成人主要可在 soleus 記錄**（以 tibial n. 刺激）\n- 上肢：**FCR with median n.**（較難做）\n- 其他多數肌肉成人無法記錄（嬰兒 < 1 歲各處都可，因為 descending inhibition 未成熟）\n\n**H reflex 臨床應用**：\n\n1. **S1 radiculopathy**（最重要）：\n   - 單側 absent 或 latency 延長 > 1.5 ms\n   - 比 SEP 或 EMG 更早異常\n   - 可檢出純感覺性根病變\n\n2. **Generalized polyneuropathy**：\n   - 雙側 absent 或延長\n   - GBS、CIDP、DM neuropathy\n\n3. **Spasticity evaluation**：\n   - **H/M ratio > 0.5** 異常（肌肉痙攣）\n   - 用於 UMN lesion 的量化\n\n4. **Motoneuron excitability 研究**\n\n**H reflex 異常判讀要點**：\n\n| 表現 | 意義 |\n|---|---|\n| 單側 absent | S1 radiculopathy |\n| 單側 latency 延長 > 1.5 ms | S1 radiculopathy |\n| 雙側 absent | PNP、CIDP、> 60 歲可能正常人 |\n| H/M ratio ↑ | Spasticity (UMN) |\n| H/M ratio ↓ | 下運動神經元病變 |\n\n**F-wave vs H-reflex 比較**：\n\n| 項目 | F-wave | H-reflex |\n|---|---|---|\n| Duration | 短（0.1-0.2 ms） | **長（0.5-1 ms）** |\n| Intensity | **Supramaximal** | **Submaximal** |\n| 機制 | Motor backfire | Ia 單突觸反射 |\n| 是否真反射 | 否 | **是** |\n| 主要肌肉 | 多數運動神經 | Soleus 為主 |",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 7 \"Electrodiagnostic Medicine\"",
+          "url": null
+        },
+        {
+          "text": "Preston DC, Shapiro BE. Electromyography and Neuromuscular Disorders, 4th ed., Ch. 4",
+          "url": null
+        },
+        {
+          "text": "Fisher MA. H reflexes and F waves: fundamentals, normal and abnormal patterns. Neurol Clin 2002;20:339",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/12152439/"
+        },
+        {
+          "text": "Palmieri RM et al. The Hoffmann reflex: methodologic considerations. J Athl Train 2004;39:268",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15173869/"
+        },
+        {
+          "text": "Kimura J. Electrodiagnosis in Diseases of Nerve and Muscle, 4th ed.",
+          "url": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-066",
+    "year": 114,
+    "session": 1,
+    "number": 66,
+    "category": "運動生理",
+    "question": "下列有關持續有氧訓練一段時間後之生理適應，何者正確？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "對原本血壓正常的人，長期有氧運動對休息狀態的血壓變化大多 < 10 mmHg"
+      },
+      {
+        "key": "B",
+        "text": "總血液量會因為紅血球數上升而增加，與血漿的量無關"
+      },
+      {
+        "key": "C",
+        "text": "體重會下降，包含體脂肪比例及去脂肪體重 (fat-free weight) 都會下降"
+      },
+      {
+        "key": "D",
+        "text": "Fast 及 slow-twitch fibers 的數量比例可能會因 selective hypertrophy 而發生改變"
+      },
+      {
+        "key": "E",
+        "text": "不會因為訓練使用到不同的肌肉或能量系統而造成特異性的生理適應"
+      }
+    ],
+    "answer": "A",
+    "explanation": {
+      "summary": "有氧運動對**血壓正常者**的降壓效果較小（< 10 mmHg）；對於**高血壓病人**才有明顯降壓（收縮 -5 至 -8 mmHg / 舒張 -2 至 -5 mmHg）。正常血壓本身就接近基線，沒太多下降空間。",
+      "detail": "**各選項分析**：\n\n**(A) ✓ 有氧運動對血壓的影響**：\n- **高血壓病人**：\n  - 收縮壓：約 **-5 to -8 mmHg**\n  - 舒張壓：約 **-2 to -5 mmHg**\n  - 顯著臨床意義（類似一顆降壓藥的效果）\n  - Cornelissen 2013 meta-analysis 證實\n- **血壓正常者**：\n  - 多數研究顯示 **< 10 mmHg** 變化\n  - 可能是 -2 ~ -5 mmHg\n  - 仍有心血管預防效益（不只看 BP）\n\n**(B) ✗ 總血液量增加的機制**：\n\n| 時間 | 變化 |\n|---|---|\n| 訓練 1-2 週 | **血漿容量快速增加（10-20%）** |\n| 訓練 2-4 週 | 紅血球逐漸增加 |\n| 訓練數月 | 兩者都持續增加 |\n\n- **Plasma volume expansion**是主要快速變化（透過 renin-aldosterone、albumin）\n- **紅血球增加較慢**\n- 實際上**血漿增加比紅血球多** → **初期 hematocrit 反而下降**（sports pseudoanemia）\n- 選項 (B) 說「只與 RBC 有關，與 plasma 無關」**完全錯誤**\n\n**(C) ✗ 體成分變化**：\n- **體脂肪 ↓**（主要效果）\n- **Fat-free mass（去脂肪體重）維持或略升**，**不是下降**\n- 有氧運動主要減脂肪，不減肌肉\n- 若合併阻力訓練，去脂肪體重會**明顯增加**\n- 選項說「去脂肪體重也下降」錯誤\n\n**(D) ✗ 肌纖維類型的改變**：\n- **Type 1 vs Type 2 的總數量比例 = 基因決定為主，訓練不會改變**\n- 運動引起的改變：\n  - **Selective hypertrophy**（某類纖維變大，但數量不變）\n  - **Type 2B → Type 2A 的轉換**（耐力訓練使肌纖維偏向氧化）\n  - 粒線體密度、毛細血管密度增加\n- **數量比例本身不改變** → (D) 錯\n\n**(E) ✗ 訓練特異性（Specificity of Training）**：\n- **會**造成特異性適應\n- **SAID principle (Specific Adaptation to Imposed Demand)**：\n  - 跑步訓練 → 跑步進步最多\n  - 游泳訓練 → 游泳進步最多\n- **肌肉群特異性**：訓練到的肌肉才有適應\n- **能量系統特異性**：\n  - 有氧訓練 → 粒線體、氧化酵素 ↑\n  - 無氧訓練 → 糖解酵素 ↑\n- 選項 (E) 完全反面，錯誤\n\n**完整有氧訓練後的適應整理**：\n\n**心血管系統**：\n| 參數 | 變化 |\n|---|---|\n| Resting HR | ↓ |\n| Max HR | 不變 |\n| Stroke volume（max 和 rest） | ↑ |\n| Cardiac output (max) | ↑ |\n| VO₂max | ↑（黃金指標） |\n| BP（HTN 病人） | ↓ |\n| BP（正常人） | 略↓（< 10 mmHg） |\n| Total blood volume | ↑（plasma > RBC） |\n| Hematocrit（初期） | ↓（plasma 擴張） |\n\n**肌肉骨骼**：\n- 粒線體數量 ↑、大小 ↑\n- 氧化酵素（SDH、citrate synthase）↑\n- Myoglobin ↑\n- Capillary density ↑\n- Type 1 hypertrophy（耐力訓練）\n- Type 2B → 2A conversion\n\n**代謝**：\n- FFA 氧化能力 ↑\n- Insulin sensitivity ↑\n- HDL ↑\n- LDL、TG ↓\n- Glycogen 儲存 ↑\n\n**體成分**：\n- **體脂肪 ↓**\n- **Fat-free mass 維持或略升**\n\n**呼吸系統**：\n- Max ventilation ↑\n- 休息通氣率不變\n- VE/VO₂ ratio ↓（呼吸效率提高）",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 6 \"Therapeutic Exercise\" & Ch. 33",
+          "url": null
+        },
+        {
+          "text": "ACSM Guidelines for Exercise Testing and Prescription, 11th ed., Ch. 5 & 6",
+          "url": null
+        },
+        {
+          "text": "Cornelissen VA, Smart NA. Exercise Training for Blood Pressure: A Systematic Review and Meta-analysis. J Am Heart Assoc 2013;2:e004473",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/23525435/"
+        },
+        {
+          "text": "McArdle WD et al. Exercise Physiology, 8th ed.",
+          "url": null
+        },
+        {
+          "text": "UpToDate: Physiologic responses to exercise in healthy individuals",
+          "url": "https://www.uptodate.com/contents/physiologic-responses-to-exercise-in-healthy-individuals"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-067",
+    "year": 114,
+    "session": 1,
+    "number": 67,
+    "category": "運動生理",
+    "question": "下列有關運動與糖尿病病人的關聯，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "規律運動有助減少糖尿病併發症、胰島素阻抗及第二型糖尿病的惡化"
+      },
+      {
+        "key": "B",
+        "text": "規律運動可預防糖尿病前期的病人進展到第二型糖尿病"
+      },
+      {
+        "key": "C",
+        "text": "有證據顯示合併有氧及阻力訓練對血糖控制有加成的效果"
+      },
+      {
+        "key": "D",
+        "text": "糖尿病病人適用一般人的運動處方，沒有心血管疾病病史的糖尿病病人在開始激烈強度運動前不需要運動測試"
+      },
+      {
+        "key": "E",
+        "text": "控制不良的高血壓、嚴重增殖性視網膜病變、或周邊神經病變的糖尿病病人不建議接受阻力訓練"
+      }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "**糖尿病病人在開始激烈強度運動前應評估**（特別是有 risk factor 或 subclinical CVD 的病人）。DM 常伴隨 silent ischemia、autonomic neuropathy，不能直接套用一般人的運動處方。",
+      "detail": "**糖尿病運動處方指引（ADA/ACSM 2022）**：\n\n**運動前評估**：\n\n1. **Medical screening 必做**：\n   - 心血管病史、藥物、低血糖史\n   - 足部、眼部、腎功能\n   - 併發症評估\n\n2. **Exercise stress testing 建議給誰？**\n   - 年齡 > 35 歲\n   - 有 CVD 風險因子（HTN、dyslipidemia、smoking、family history）\n   - 併發症（neuropathy、nephropathy、retinopathy）\n   - 有心血管症狀\n   - **準備開始激烈強度（> 60% VO₂max）運動**\n\n→ ADA 目前不要求**所有** DM 病人做運動測試（已不是硬性要求），但有 risk factor 或計畫激烈運動者**仍應考慮**。\n\n**為什麼 DM 需要特別謹慎？**\n\n- **Silent MI**：DM neuropathy 讓胸痛感覺遲鈍\n- **Autonomic neuropathy**：HR 反應異常、BP 調節差、heat intolerance\n- **Subclinical CAD 盛行率高**（即使年輕）\n\n**各選項分析**：\n\n**(A) ✓** 規律運動益處：\n- 改善胰島素敏感性（最直接）\n- 降低 HbA1c（0.5-0.7%）\n- 減少 DM 併發症（CVD、CKD、retinopathy 進展）\n- 改善血脂、血壓\n- 降低心血管事件\n\n**(B) ✓ 預防 DM 進展**：\n- **DPP trial**（Diabetes Prevention Program）:\n  - 生活型態（運動+飲食+減重 5-7%）→ **T2DM 發生率 ↓ 58%**\n  - Metformin 組 ↓ 31%\n  - 生活型態效果比藥還好\n- 150 分鐘/週中等強度運動可有效預防\n\n**(C) ✓ 有氧 + 阻力訓練加成**：\n- HART-D trial：combined training 對 HbA1c 降幅最大\n- ADA 建議：\n  - 有氧：150 min 中等強度 或 75 min 高強度/週\n  - 阻力：**2-3 次/週**\n  - 合併更佳\n- 機制：\n  - 有氧 → insulin sensitivity ↑\n  - 阻力 → 肌肉量 ↑（glucose disposal ↑）\n\n**(D) ✗** 如上，DM 病人不能**直接套用一般人處方**，需個別化評估\n- 低血糖預防（SU、insulin 使用者）\n- 足部保護（neuropathy）\n- 眼部（retinopathy）\n- 心血管\n- 激烈運動前**仍應評估**\n\n**(E) ✓ 阻力訓練禁忌**：\n\n| 狀況 | 原因 |\n|---|---|\n| **控制不良高血壓** | 阻力運動 → BP 飆升 |\n| **嚴重增殖性視網膜病變** | Valsalva → 視網膜/玻璃體出血 |\n| **嚴重周邊神經病變** | 感覺差 → 足部潰瘍風險、關節損傷 |\n| 不穩定心血管疾病 | 心臟負荷 |\n| 急性併發症（DKA、HHS） | 代謝不穩 |\n\n**DM 運動處方實務**：\n\n**1. 血糖管理**：\n- 運動前 < 100 mg/dL → 補充 15-30 g CHO\n- > 250 mg/dL + ketones → 延後運動\n- 運動中監測低血糖：發抖、冒汗、頭暈\n- **運動後延遲性低血糖**（可能 4-24 小時發生）\n\n**2. 足部**：\n- 適當鞋具\n- 運動後檢查\n- Neuropathy 患者：避免高衝擊（改 swimming、cycling）\n\n**3. Retinopathy**：\n- Proliferative：避免 Valsalva、阻力、高衝擊\n- 非增殖性、穩定：中等強度可接受\n\n**4. Autonomic neuropathy**：\n- Silent ischemia 風險\n- HR / BP 反應異常 → 運動測試特別有價值\n\n**5. 注射胰島素者**：\n- 避免注射在運動的肢體（吸收加速 → 低血糖）\n- 運動前 1 小時內減量\n- 運動中補糖",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 33 \"Cardiac Rehabilitation\"",
+          "url": null
+        },
+        {
+          "text": "Colberg SR et al. Physical Activity/Exercise and Diabetes: ADA Position Statement. Diabetes Care 2016;39:2065",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/27926890/"
+        },
+        {
+          "text": "ADA. Standards of Medical Care in Diabetes 2023. Diabetes Care 2023;46(Suppl 1)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36507640/"
+        },
+        {
+          "text": "Knowler WC et al. DPP: Reduction in T2DM with lifestyle intervention or metformin. NEJM 2002;346:393",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11832527/"
+        },
+        {
+          "text": "UpToDate: Exercise guidance in adults with diabetes mellitus",
+          "url": "https://www.uptodate.com/contents/exercise-guidance-in-adults-with-diabetes-mellitus"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-068",
+    "year": 114,
+    "session": 1,
+    "number": 68,
+    "category": "運動生理",
+    "question": "下列有關肌肉生理學之敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "粒線體的數量 type 1 > type 2，所以 type 1 肌肉纖維比較適合需要有氧代謝的耐力型活動"
+      },
+      {
+        "key": "B",
+        "text": "離心 (eccentric) 收縮時，肌肉會伸長，此時會徵召較多的 fast twitch fibers"
+      },
+      {
+        "key": "C",
+        "text": "等速 (isokinetic) 收縮在自然界不存在，只能在速率限制設備的幫助下完成"
+      },
+      {
+        "key": "D",
+        "text": "肌肉收縮的最大力量會出現在肌肉伸展到最長時發生"
+      },
+      {
+        "key": "E",
+        "text": "肌力訓練最初幾週觀察到的力量增加，主要是由 neuromuscular adaptations 造成的"
+      }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "依 **Length-Tension Relationship（長度張力關係）**，肌肉在**中等長度（~ optimal length，接近 resting length）**產生的**主動收縮力量最大**。伸展太長或縮太短都會使主動張力下降（actin-myosin crossbridge 重疊減少）。",
+      "detail": "**Length-Tension Relationship 詳解**：\n\n**主動張力（Active tension）**：\n- 來自 actin-myosin 的 crossbridge 形成\n- **Optimal length（最適長度）**：actin 和 myosin filament 重疊最佳\n- **過長**：filament 重疊減少 → 主動張力下降\n- **過短**：filament 互相干擾（thin filament collision）→ 主動張力下降\n\n**被動張力（Passive tension）**：\n- 來自結締組織、titin 等彈性成分\n- 肌肉**越拉長，被動張力越大**（像橡皮筋）\n\n**總張力 = 主動 + 被動**：\n- 在 optimal length 附近：主動為主\n- 很長時：被動為主（但主動貢獻小）\n\n→ 選項 (D) 錯誤：**主動收縮力量最大不在最長時**，而是在 **optimal length（中等長度）**\n\n**各選項分析**：\n\n**(A) ✓ Type 1 vs Type 2 粒線體**：\n\n| 特徵 | Type 1 (Slow) | Type 2A | Type 2B/2X (Fast) |\n|---|---|---|---|\n| **粒線體** | **多** | 中 | **少** |\n| 氧化酵素 | 高 | 中 | 低 |\n| 糖解酵素 | 低 | 中 | 高 |\n| 收縮速度 | 慢 | 快 | 最快 |\n| 易疲勞 | 不易 | 中 | 易 |\n| 適合活動 | **耐力** | 中間 | **爆發力** |\n| 顏色 | 紅（myoglobin 多） | 紅 | 白 |\n\n**(B) ✓ Eccentric contraction（離心收縮）**：\n- 肌肉被動拉長的同時主動出力\n- **力量最大**的收縮形式（> concentric > isometric）\n- **徵召較多 fast twitch fibers**（type 2）\n- **較容易造成 DOMS**（延遲性肌肉痠痛）\n- 訓練中重要但風險較高\n\n**(C) ✓ Isokinetic contraction（等速收縮）**：\n- **固定速度的收縮**\n- **自然界不存在**（自然動作都是變速的）\n- 需要特殊設備（Cybex、Biodex）才能達成\n- 臨床用於：\n  - 肌力精確測量\n  - 復健訓練\n  - 運動表現評估\n\n**(D) ✗** 如上所述\n\n**(E) ✓ 肌力訓練初期的 Neuromuscular adaptation**：\n- **訓練前 4-6 週**：力量顯著增加\n- 主要機制：\n  - **神經徵召效率 ↑**（motor unit recruitment）\n  - **Firing rate ↑**\n  - **同步性 ↑**（motor unit synchronization）\n  - **拮抗肌抑制 ↑**\n  - **運動技巧提升**\n- **肌肉體積（hypertrophy）需 4-6 週以上才顯著改變**\n- Moritani & deVries 經典研究（1979）\n\n**三種肌肉收縮比較**：\n\n| 類型 | 長度變化 | 力量大小 | 能量效率 |\n|---|---|---|---|\n| **Isometric**（等長） | 不變 | 中 | 最高 |\n| **Concentric**（向心，縮短） | 變短 | 中 | 中 |\n| **Eccentric**（離心，伸長） | 變長 | **最大** | 最低（最易損傷） |\n\n**收縮速度與力量**（Hill equation / Force-velocity）：\n- Concentric：速度越快，力量越小\n- Eccentric：速度越快，力量仍大（甚至更大）\n- Isometric：速度 = 0，力量中等",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 6 \"Therapeutic Exercise\"",
+          "url": null
+        },
+        {
+          "text": "DeLisa's PM&R, 5th ed., Ch. 11 \"Muscle Physiology\"",
+          "url": null
+        },
+        {
+          "text": "McArdle WD et al. Exercise Physiology, 8th ed.",
+          "url": null
+        },
+        {
+          "text": "Moritani T, deVries HA. Neural factors versus hypertrophy in the time course of muscle strength gain. Am J Phys Med 1979;58:115",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/453338/"
+        },
+        {
+          "text": "Gordon AM et al. The variation in isometric tension with sarcomere length in vertebrate muscle fibres. J Physiol 1966;184:170",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/5921536/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-069",
+    "year": 114,
+    "session": 1,
+    "number": 69,
+    "category": "運動生理",
+    "question": "下列對於高齡者的生理變化及運動處方之敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "從 25-30 歲開始，最大攝氧量每 10 年會下降大約 5-15%"
+      },
+      {
+        "key": "B",
+        "text": "隨著年齡增長，肌肉的氧化能力下降會導致最大動靜脈氧差 (a–vO₂ difference) 降低"
+      },
+      {
+        "key": "C",
+        "text": "由於肌肉氧化能力下降，故高齡者經過運動訓練後，最大攝氧量上升的幅度會比年輕人低"
+      },
+      {
+        "key": "D",
+        "text": "高齡者的最大心率 (HRmax) 存在高度變異，因此進行運動處方時最好使用實測到的 HRmax，而非依據年齡預測"
+      },
+      {
+        "key": "E",
+        "text": "應優先使用器械進行阻力訓練，而非自由重量 (free weights)"
+      }
+    ],
+    "answer": "C",
+    "explanation": {
+      "summary": "**高齡者訓練後 VO₂max 的「相對提升幅度（%）」其實和年輕人相當**（約 15-30%，有些研究甚至更高）。絕對值可能略低，但**% improvement 不比年輕人低**。老年人仍然「可以被訓練」，這點是運動處方重要基礎。",
+      "detail": "**老化運動生理核心觀念**：\n\n**VO₂max 隨年齡下降**：\n\n| 族群 | 下降速度 |\n|---|---|\n| **Sedentary（久坐不動）** | **~ 10% per decade**（25-30 歲以後） |\n| Active | ~ 5% per decade |\n| Trained athletes | ~ 5% per decade（甚至更慢） |\n| 女性停經後 | 12-15% per decade（若 sedentary） |\n\n→ 選項 (A) 說 5-15% 是合理範圍（視活動程度而定）\n\n**VO₂max 下降的機轉（Fick equation）**：\n\n$$VO_2 = CO \\times (a\\text{-}vO_2 \\text{ diff}) = HR \\times SV \\times (a\\text{-}vO_2)$$\n\n**老化各要素下降**：\n\n| 參數 | 隨年齡變化 | 主要原因 |\n|---|---|---|\n| **HRmax** | **↓** | 公式：~ 220 - age（或 208 - 0.7×age） |\n| **Stroke volume** | ↓ | 心室僵硬、preload 下降 |\n| **Cardiac output** | ↓ | HR + SV 兩者都↓ |\n| **Max a-v O₂ difference** | ↓ | **肌肉氧化能力↓、粒線體↓、capillary↓** |\n| VO₂max | ↓↓ | 綜合結果 |\n\n- 年輕人：VO₂max 限制主要是**中央因素（cardiac output, ~ 77%）**\n- 老年人：**peripheral（肌肉氧化）的貢獻增加**，尤其極老（senescent）族群\n\n**Trainability（訓練反應性）**：\n\n- **老年人的 VO₂max 相對提升（% improvement）和年輕人相當**\n- 文獻：12 週耐力訓練後：\n  - 年輕人：VO₂max ↑ 13%\n  - 老年人：VO₂max ↑ 6-15%（多數研究顯示接近）\n- Meta-analysis（Huang 2005）：老年人平均 **↑ 16.3%**\n- 機制：cardiac output 仍可改善（70%）+ 氧萃取仍可改善（30%）\n\n→ **(C) 錯誤**：老人訓練後 VO₂max 上升幅度**不輸給年輕人**\n\n**各選項分析**：\n\n**(A) ✓** VO₂max 每 10 年下降 5-15%（視活動程度）\n\n**(B) ✓** 肌肉氧化能力下降 → a-v O₂ difference 下降\n- Capillary density ↓\n- 粒線體數量、功能 ↓\n- 氧化酵素 ↓\n\n**(C) ✗** 如上，老人的相對 trainability 接近年輕人\n\n**(D) ✓ 使用實測 HRmax 而非預測值**：\n- 老年人 **HRmax 個體變異大**\n- 「220 - age」公式的標準差 ± 10-15 bpm\n- 高估或低估訓練強度都不好\n- 實務：**symptom-limited GXT 測 HRmax** 最準\n- 若無法做測試，改用 **RPE (Borg 6-20 scale)** 或 talk test\n\n**(E) ✓ 優先使用器械，非自由重量**：\n- 老年人使用器械（machine）的好處：\n  - **安全性高**（固定軌跡）\n  - 不需要平衡技巧\n  - 適合平衡差的長者\n  - 減少跌倒風險\n  - 學習曲線短\n- 自由重量需要：\n  - 平衡、協調\n  - 核心穩定\n  - 技巧\n- 老年人**先用機器建立基礎**，之後技巧好可以漸進加入 free weight\n\n**老年人運動處方要點（ACSM 2022）**：\n\n**有氧**：\n- 150 min 中等強度/週（如快走）\n- 或 75 min 高強度\n- 分散 ≥ 3 天\n- 從 RPE 11-13 開始\n\n**阻力**：\n- 2-3 次/週\n- 8-10 個主要肌群\n- 每組 10-15 reps\n- **器械優先**，漸進 free weight\n\n**平衡**：\n- ≥ 2-3 次/週\n- 尤其跌倒風險高者\n- Tai Chi、Frenkel exercises\n\n**柔軟度**：\n- ≥ 2 次/週\n- 每次 10 分鐘\n- 動態 + 靜態\n\n**注意事項**：\n- 特殊族群（CHF、COPD、DM、骨質疏鬆）需個別化\n- 從低強度開始漸進\n- 水分補充、溫度調節\n- 跌倒防範",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 58 \"Geriatric Rehabilitation\"",
+          "url": null
+        },
+        {
+          "text": "ACSM Guidelines for Exercise Testing and Prescription, 11th ed., Ch. 7 \"Exercise Prescription for Older Adults\"",
+          "url": null
+        },
+        {
+          "text": "Huang G et al. Controlled endurance exercise training and VO2max changes in older adults: a meta-analysis. Prev Cardiol 2005;8:217",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/16230876/"
+        },
+        {
+          "text": "Fitzgerald MD et al. Age-related decline in maximal aerobic capacity in regularly exercising vs. sedentary women. J Appl Physiol 1997;83:160",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9216959/"
+        },
+        {
+          "text": "Betik AC, Hepple RT. Determinants of VO2 max decline with aging: an integrated perspective. Appl Physiol Nutr Metab 2008;33:130",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/18347663/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "114-1-070",
+    "year": 114,
+    "session": 1,
+    "number": 70,
+    "category": "運動生理",
+    "question": "下列有關 Type 1，Type 2A 及 Type 2B 肌纖維之敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      {
+        "key": "A",
+        "text": "Type 1 肌纖維之 ATP 來源主要為氧化磷酸化 (oxidative phosphorylation)"
+      },
+      {
+        "key": "B",
+        "text": "Type 2A 肌纖維之粒線體含量較 Type 2B 為高"
+      },
+      {
+        "key": "C",
+        "text": "肝醣儲存量之比較：Type 1 > Type 2A > Type 2B"
+      },
+      {
+        "key": "D",
+        "text": "Type 2B 肌纖維之收縮速度較 Type 1 為快，但也較容易疲勞"
+      },
+      {
+        "key": "E",
+        "text": "肌纖維直徑大小之比較：Type 2B > Type 2A > Type 1"
+      }
+    ],
+    "answer": "C",
+    "explanation": {
+      "summary": "**肝醣（glycogen）儲存量正確排序為 Type 2B > Type 2A > Type 1**（快縮肌儲存較多肝醣，供快速糖解使用）。選項 (C) 方向完全反了。",
+      "detail": "**肌纖維類型完整比較表**（重要！常考）：\n\n| 特徵 | **Type 1 (SO)** | **Type 2A (FOG)** | **Type 2B/2X (FG)** |\n|---|---|---|---|\n| **別稱** | Slow Oxidative, Red | Fast Oxidative-Glycolytic | Fast Glycolytic, White |\n| **收縮速度** | 慢 | 快 | **最快** |\n| **疲勞耐受** | **最耐疲勞** | 中等 | 易疲勞 |\n| **ATP 來源** | **氧化磷酸化** | 氧化 + 糖解 | 糖解為主 |\n| **粒線體** | 多 | 中-多 | **少** |\n| **氧化酵素**（SDH、citrate） | 高 | 中-高 | 低 |\n| **糖解酵素**（PFK、LDH） | 低 | 中 | **高** |\n| **Myoglobin** | **多**（紅肌） | 中 | 少（白肌） |\n| **微血管密度** | **高** | 中 | 低 |\n| **肝醣儲存** | 中 | 中-高 | **高**（2B > 2A > 1） |\n| **Triglyceride 儲存** | **高** | 中 | 低 |\n| **肌纖維直徑** | 小 | 中 | **大**（2B > 2A > 1） |\n| **運動單位大小** | 小 | 中 | 大 |\n| **徵召閾值** | 低（先徵召） | 中 | 高（後徵召） |\n| **代表肌肉** | Soleus、脊椎旁肌 | 大腿肌（混合） | 二頭肌、小腿外展肌 |\n| **適合活動** | **耐力**（馬拉松） | 中距離（800-1500m） | **爆發力**（舉重、100m 衝刺） |\n\n**各選項分析**：\n\n**(A) ✓ Type 1 ATP 來源**：\n- 主要：**氧化磷酸化（mitochondria）**\n- 底物：脂肪酸、葡萄糖、乳酸\n- 適合長時間、低強度\n\n**(B) ✓ 粒線體：Type 2A > Type 2B**：\n- Type 2A 是「氧化-糖解混合型」，粒線體較多\n- Type 2B 純糖解，粒線體少\n- 粒線體排序：**Type 1 > Type 2A > Type 2B**\n\n**(C) ✗ 肝醣儲存（錯誤）**：\n\n正確順序：**Type 2B > Type 2A > Type 1**\n\n**為什麼快縮肌肝醣多？**\n- Type 2B 主要靠**糖解（glycolysis）**產能\n- 糖解需要快速動員 glycogen\n- 所以肝醣儲存必須高\n- 相反，Type 1 主要靠脂肪氧化，不太需要大量肝醣\n\n**肝醣、triglyceride、myoglobin 儲存對比**：\n\n| 底物 | Type 1 | Type 2A | Type 2B |\n|---|---|---|---|\n| **Glycogen（肝醣）** | 中 | 中-高 | **高** |\n| **Triglyceride（脂肪）** | **高** | 中 | 低 |\n| **Myoglobin** | **高** | 中-高 | 低 |\n\n**記憶法**：\n- 紅肌（type 1）儲存**脂肪**（長效能）\n- 白肌（type 2B）儲存**肝醣**（快速能）\n\n**(D) ✓ Type 2B vs Type 1**：\n- 收縮速度：2B > 1（2B 為爆發型）\n- 易疲勞：2B > 1\n- ATPase 活性：2B 高（收縮快）\n\n**(E) ✓ 肌纖維直徑**：Type 2B > Type 2A > Type 1\n- 大直徑 → 大力量\n- 但也較容易肥大（hypertrophy potential）\n- 阻力訓練主要讓 type 2 纖維增大\n\n**訓練對肌纖維的影響**：\n\n**耐力訓練**：\n- Type 1 hypertrophy\n- **Type 2B → Type 2A 轉換**（變得更氧化）\n- 粒線體密度 ↑（各種纖維）\n- 微血管密度 ↑\n- 氧化酵素活性 ↑\n\n**阻力訓練**：\n- **Type 2 hypertrophy**（主要）\n- 糖解酵素 ↑\n- CP 儲存 ↑\n- 神經適應（前幾週）\n- 肌纖維**數量比例基本不改變**（僅有 2B ↔ 2A 轉換）\n\n**老化對肌纖維的影響**：\n- **Type 2 preferential atrophy**（快縮肌優先萎縮）\n- Motor unit 數量減少\n- 肌纖維體積縮小\n- 殘存 motor unit 會「吸收」去神經纖維 → reinnervation\n- 結果：剩下的 motor unit 變大但慢（type 1 dominant）\n- 這就是 **sarcopenia** 的神經-肌肉基礎\n\n**臨床應用**：\n\n**運動員的肌纖維比例**：\n- 馬拉松選手：type 1 ~ 80%\n- 短跑衝刺選手：type 2 ~ 70%\n- 一般人：接近 50:50（因人而異）\n\n**訓練處方建議**：\n- 要改善**耐力** → 長時間、低-中強度有氧（targeting type 1 + type 2A）\n- 要改善**爆發力** → 短時間、高強度、舉重（targeting type 2B）\n- 要改善**老年 sarcopenia** → **阻力訓練 + 蛋白質攝取**（targeting type 2 恢復）",
+      "sources": [
+        {
+          "text": "Braddom's PM&R, 6th ed., Ch. 6 \"Therapeutic Exercise\" & Ch. 58",
+          "url": null
+        },
+        {
+          "text": "DeLisa's PM&R, 5th ed., Ch. 11 \"Muscle Physiology\"",
+          "url": null
+        },
+        {
+          "text": "Scott W et al. Human skeletal muscle fiber type classifications. Phys Ther 2001;81:1810",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/11694174/"
+        },
+        {
+          "text": "McArdle WD et al. Exercise Physiology, 8th ed., Ch. 18",
+          "url": null
+        },
+        {
+          "text": "Staron RS. Human skeletal muscle fiber types. Can J Appl Physiol 1997;22:307",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/9263616/"
+        }
+      ]
+    }
   }
 ];
 
