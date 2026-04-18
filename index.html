@@ -12675,7 +12675,8 @@ const QUESTIONS = [
 const STORAGE = {
   answered: 'pmr_answered_v1',       // { [qid]: { selected, correct, timestamp } }
   starred:  'pmr_starred_v1',        // [qid, qid, ...]
-  stats:    'pmr_stats_v1'           // { totalAnswered, totalCorrect, bySession: {} }
+  stats:    'pmr_stats_v1',          // { totalAnswered, totalCorrect, bySession: {} }
+  mockHistory: 'pmr_mock_history_v1' // [{ id, startedAt, finishedAt, elapsedSec, total, score, answers: {[qid]: {selected, correct}}, qids: [] }]
 };
 
 const load = (key, fallback) => {
@@ -12869,12 +12870,20 @@ function Header({ onHome, answeredCount, totalCount }) {
 /* =========================================================================
    Home 首頁
    ========================================================================= */
-function Home({ onStart, onViewAnalytics, onResetProgress, stats, starred, answered }) {
+function Home({ onStart, onViewAnalytics, onResetProgress, onViewMockHistory, stats, starred, answered }) {
   const totalCount = QUESTIONS.length;
   const answeredCount = Object.keys(answered).length;
   const correctCount = Object.values(answered).filter(a => a.correct).length;
   const wrongCount = answeredCount - correctCount;
   const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+
+  // 歷次模擬考摘要
+  const mockHistory = useMemo(() => load(STORAGE.mockHistory, []), []);
+  const mockCount = mockHistory.length;
+  const bestScore = mockCount > 0 ? Math.max(...mockHistory.map(m => m.score)) : 0;
+  const bestTotal = mockCount > 0
+    ? (mockHistory.find(m => m.score === bestScore)?.total || 0)
+    : 0;
 
   // 依年度分組
   const byYearSession = useMemo(() => {
@@ -12903,7 +12912,9 @@ function Home({ onStart, onViewAnalytics, onResetProgress, stats, starred, answe
       key: 'simulation',
       title: 'Mock Exam',
       subtitle: '模擬考試',
-      desc: '計時作答，結束後一次看結果與詳解',
+      desc: mockCount > 0
+        ? `隨機 50 題作答 · 已考 ${mockCount} 次 · 最高 ${bestScore}/${bestTotal}`
+        : `隨機抽 50 題一次作答，結束後顯示分數與詳解`,
       icon: '◈'
     },
     {
@@ -12951,7 +12962,7 @@ function Home({ onStart, onViewAnalytics, onResetProgress, stats, starred, answe
       </div>
 
       {/* 兩個主要動作按鈕 */}
-      <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-3 mb-12">
         <button
           onClick={() => onViewAnalytics && onViewAnalytics()}
           className="btn-accent px-6 py-3.5 rounded-lg flex items-center justify-center gap-2.5 text-base font-medium"
@@ -12962,6 +12973,17 @@ function Home({ onStart, onViewAnalytics, onResetProgress, stats, starred, answe
           </svg>
           <span>查看作答分析 View Analytics</span>
           <span className="font-display text-lg">→</span>
+        </button>
+        <button
+          onClick={() => onViewMockHistory && onViewMockHistory()}
+          disabled={mockCount === 0}
+          className={`btn-ghost px-5 py-3.5 rounded-lg flex items-center justify-center gap-2 text-sm ${mockCount === 0 ? 'opacity-40 cursor-not-allowed' : ''}`}
+          title={mockCount === 0 ? '尚無模擬考紀錄' : '查看所有模擬考紀錄'}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="3 12 7 12 10 5 14 19 17 12 21 12"/>
+          </svg>
+          <span>歷次考試{mockCount > 0 ? ` (${mockCount})` : ''}</span>
         </button>
         <button
           onClick={onResetProgress}
@@ -13400,7 +13422,7 @@ function CategoryBar({ cat, accent, onClick }) {
   );
 }
 
-function Practice({ mode, year, session, category, startIdx, onExit, answered, setAnswered, starred, setStarred }) {
+function Practice({ mode, year, session, category, startIdx, onExit, onMockFinish, answered, setAnswered, starred, setStarred }) {
   // 建立題目清單
   const queue = useMemo(() => {
     let list = [...QUESTIONS];
@@ -13409,6 +13431,7 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
     } else if (mode === 'random') {
       list = [...list].sort(() => Math.random() - 0.5);
     } else if (mode === 'simulation') {
+      // Mock Exam：隨機抽 50 題
       list = [...list].sort(() => Math.random() - 0.5).slice(0, Math.min(50, list.length));
     } else if (mode === 'wrong') {
       list = list.filter(q => answered[q.id] && !answered[q.id].correct);
@@ -13428,35 +13451,45 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
   const [submitted, setSubmitted] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
 
-  // 計時 (simulation/timer mode)
-  const isTimed = mode === 'simulation';
-  const [seconds, setSeconds] = useState(isTimed ? queue.length * 90 : 0);
+  // Mock Exam 專用：區域作答記錄（不污染 answered）
+  const isMock = mode === 'simulation';
+  const [mockAnswers, setMockAnswers] = useState({}); // { [qid]: { selected, correct } }
+  const [mockStartedAt] = useState(() => Date.now());
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+
+  // 計時器（Mock 模式累加計算用時）
+  const [seconds, setSeconds] = useState(0);
   const timerRef = useRef();
 
   useEffect(() => {
-    if (!isTimed) return;
+    if (!isMock) return;
     timerRef.current = setInterval(() => {
-      setSeconds(s => {
-        if (s <= 1) { clearInterval(timerRef.current); return 0; }
-        return s - 1;
-      });
+      setSeconds(s => s + 1);
     }, 1000);
     return () => clearInterval(timerRef.current);
-  }, [isTimed]);
+  }, [isMock]);
 
   // 切換題目時重置狀態
   useEffect(() => {
     setSelected(null);
     setSubmitted(false);
     setShowExplanation(false);
-    // 如果這題已經答過（非 simulation 模式），直接顯示結果
     const q = queue[idx];
-    if (q && !isTimed && answered[q.id]) {
+    if (!q) return;
+    // Mock 模式：若該題在本次已作答，顯示之前的選擇（但仍可改）
+    if (isMock) {
+      if (mockAnswers[q.id]) {
+        setSelected(mockAnswers[q.id].selected);
+      }
+      return;
+    }
+    // 非 Mock 模式：若這題已答過，直接顯示結果
+    if (answered[q.id]) {
       setSelected(answered[q.id].selected);
       setSubmitted(true);
       setShowExplanation(true);
     }
-  }, [idx, queue, isTimed]);
+  }, [idx, queue, isMock]);
 
   if (queue.length === 0) {
     return (
@@ -13474,11 +13507,46 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
   const submit = () => {
     if (!selected) return;
     const correct = selected === q.answer;
+
+    if (isMock) {
+      // Mock 模式：只存本地、不顯示答案、不顯示詳解、自動前進
+      const nextMock = { ...mockAnswers, [q.id]: { selected, correct } };
+      setMockAnswers(nextMock);
+      // 自動前進到下一題
+      if (idx < queue.length - 1) {
+        setIdx(idx + 1);
+      } else {
+        // 最後一題 → 顯示交卷確認
+        setShowSubmitConfirm(true);
+      }
+      return;
+    }
+
+    // 一般模式：顯示答案與詳解
     setSubmitted(true);
-    if (!isTimed) setShowExplanation(true);
+    setShowExplanation(true);
     const next = { ...answered, [q.id]: { selected, correct, timestamp: Date.now() } };
     setAnswered(next);
     save(STORAGE.answered, next);
+  };
+
+  // Mock 模式：提交整份考卷
+  const finishMock = () => {
+    clearInterval(timerRef.current);
+    const finishedAt = Date.now();
+    const elapsedSec = Math.round((finishedAt - mockStartedAt) / 1000);
+    const score = Object.values(mockAnswers).filter(a => a.correct).length;
+    const record = {
+      id: `mock_${finishedAt}`,
+      startedAt: mockStartedAt,
+      finishedAt,
+      elapsedSec,
+      total: queue.length,
+      score,
+      answers: mockAnswers,
+      qids: queue.map(q => q.id)
+    };
+    onMockFinish && onMockFinish(record);
   };
 
   const toggleStar = () => {
@@ -13505,11 +13573,11 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
       <div className="flex items-center justify-between mb-6">
         <button onClick={onExit} className="text-sm text-dim hover:text-soft flex items-center gap-1.5">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-          退出練習
+          {isMock ? '中途離開' : '退出練習'}
         </button>
         <div className="flex items-center gap-3 text-sm">
-          {isTimed && (
-            <span className={`font-mono flex items-center gap-1.5 ${seconds < 60 ? 'timer-warn' : 'accent'}`}>
+          {isMock && (
+            <span className="font-mono flex items-center gap-1.5 accent" title="本次用時">
               <IconClock size={14}/> {formatTime(seconds)}
             </span>
           )}
@@ -13527,10 +13595,15 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
       <div className="flex items-center flex-wrap gap-2 mb-4">
         <span className="chip font-mono">{q.year}-{q.session}-{String(q.number).padStart(2, '0')}</span>
         {q.category && <span className="chip">{q.category}</span>}
-        {answered[q.id] && (
+        {!isMock && answered[q.id] && (
           answered[q.id].correct
             ? <span className="chip" style={{ background: 'var(--correct-soft)', borderColor: 'rgba(74,222,128,0.3)', color: 'var(--correct)' }}><IconCheck size={12}/> 答對過</span>
             : <span className="chip chip-wrong"><IconX size={12}/> 答錯過</span>
+        )}
+        {isMock && mockAnswers[q.id] && (
+          <span className="chip" style={{ background: 'rgba(var(--accent-rgb, 39,115,99), 0.1)', color: 'var(--accent)' }}>
+            <IconCheck size={12}/> 已作答
+          </span>
         )}
         <button
           onClick={toggleStar}
@@ -13624,17 +13697,290 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
           上一題
         </button>
         <div className="flex gap-3">
-          {!submitted ? (
-            <button onClick={submit} disabled={!selected} className="btn-accent px-6 py-2.5 rounded-md text-sm disabled:opacity-40">
-              提交答案
-            </button>
+          {isMock ? (
+            // Mock 模式：提交 = 存答案 + 前進；最後一題提交 = 彈出交卷確認
+            <>
+              {idx < queue.length - 1 ? (
+                <button onClick={submit} disabled={!selected} className="btn-accent px-6 py-2.5 rounded-md text-sm disabled:opacity-40">
+                  {mockAnswers[q.id] ? '下一題 →' : '提交 →'}
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    if (selected) submit(); // 先存最後一題答案
+                    else setShowSubmitConfirm(true);
+                  }}
+                  className="btn-accent px-6 py-2.5 rounded-md text-sm"
+                >
+                  交卷
+                </button>
+              )}
+            </>
           ) : (
-            <button onClick={next} className="btn-accent px-6 py-2.5 rounded-md text-sm">
-              {idx < queue.length - 1 ? '下一題 →' : '完成練習'}
-            </button>
+            !submitted ? (
+              <button onClick={submit} disabled={!selected} className="btn-accent px-6 py-2.5 rounded-md text-sm disabled:opacity-40">
+                提交答案
+              </button>
+            ) : (
+              <button onClick={next} className="btn-accent px-6 py-2.5 rounded-md text-sm">
+                {idx < queue.length - 1 ? '下一題 →' : '完成練習'}
+              </button>
+            )
           )}
         </div>
       </div>
+
+      {/* Mock 模式：交卷確認 modal */}
+      {isMock && showSubmitConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.6)' }}>
+          <div className="surface rounded-lg max-w-md w-full p-6">
+            <div className="font-display text-xl mb-3">確認交卷？</div>
+            <div className="text-sm text-dim mb-5 leading-relaxed">
+              已作答 <span className="accent font-semibold">{Object.keys(mockAnswers).length}</span> / {queue.length} 題
+              ，用時 <span className="accent font-mono">{formatTime(seconds)}</span>。
+              {Object.keys(mockAnswers).length < queue.length && (
+                <div className="mt-2 text-[var(--wrong)]">尚有 {queue.length - Object.keys(mockAnswers).length} 題未作答，將視為錯誤。</div>
+              )}
+            </div>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setShowSubmitConfirm(false)}
+                className="btn-ghost px-4 py-2 rounded-md text-sm"
+              >
+                返回檢查
+              </button>
+              <button
+                onClick={finishMock}
+                className="btn-accent px-5 py-2 rounded-md text-sm"
+              >
+                確認交卷
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}
+
+/* =========================================================================
+   MockResult — 模擬考結果頁
+   ========================================================================= */
+function MockResult({ record, onBack, onReview, fromHistory }) {
+  const [filterWrong, setFilterWrong] = useState(false);
+
+  const pct = record.total > 0 ? Math.round((record.score / record.total) * 100) : 0;
+  const elapsedMin = Math.floor(record.elapsedSec / 60);
+  const elapsedSec = record.elapsedSec % 60;
+  const dateStr = new Date(record.finishedAt).toLocaleString('zh-TW', {
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  // 建立題目列表供檢視
+  const qList = useMemo(() => {
+    return record.qids.map((qid, i) => {
+      const q = QUESTIONS.find(qq => qq.id === qid);
+      const a = record.answers[qid];
+      return {
+        index: i + 1,
+        q,
+        selected: a ? a.selected : null,
+        correct: a ? a.correct : null,
+        answered: !!a
+      };
+    }).filter(item => item.q);
+  }, [record]);
+
+  const displayList = filterWrong
+    ? qList.filter(item => !item.correct)
+    : qList;
+
+  const wrongCount = qList.filter(item => !item.correct).length;
+
+  // 分數顯示顏色
+  const scoreColor = pct >= 70 ? 'var(--correct)' : pct >= 50 ? 'var(--accent)' : 'var(--wrong)';
+
+  return (
+    <main className="max-w-4xl mx-auto px-6 py-10 fadein">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-8">
+        <button onClick={onBack} className="text-sm text-dim hover:text-soft flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          {fromHistory ? '返回歷次考試' : '返回首頁'}
+        </button>
+        <span className="font-mono text-xs text-subtle">{dateStr}</span>
+      </div>
+
+      {/* 分數卡 */}
+      <section className="surface rounded-lg p-8 mb-6">
+        <div className="text-xs font-mono uppercase tracking-[0.2em] text-subtle mb-3">Mock Exam Result</div>
+        <div className="flex items-baseline gap-3 mb-6 flex-wrap">
+          <span className="font-display text-6xl md:text-7xl font-semibold leading-none" style={{ color: scoreColor }}>
+            {record.score}
+          </span>
+          <span className="font-display text-3xl text-dim">/ {record.total}</span>
+          <span className="font-mono text-2xl ml-3" style={{ color: scoreColor }}>
+            {pct}%
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-px surface overflow-hidden rounded-md">
+          <div className="p-4 bg-[var(--bg-1)]">
+            <div className="text-xs font-mono text-subtle mb-1">答對</div>
+            <div className="font-display text-xl" style={{ color: 'var(--correct)' }}>{record.score}</div>
+          </div>
+          <div className="p-4 bg-[var(--bg-1)]">
+            <div className="text-xs font-mono text-subtle mb-1">答錯</div>
+            <div className="font-display text-xl" style={{ color: 'var(--wrong)' }}>{wrongCount}</div>
+          </div>
+          <div className="p-4 bg-[var(--bg-1)]">
+            <div className="text-xs font-mono text-subtle mb-1">用時</div>
+            <div className="font-display text-xl font-mono">
+              {elapsedMin}:{String(elapsedSec).padStart(2, '0')}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 作答列表 */}
+      <section className="mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="font-display text-xs uppercase tracking-[0.2em] text-subtle">Answer Sheet · 作答紀錄</h2>
+          <button
+            onClick={() => setFilterWrong(!filterWrong)}
+            className={`chip ${filterWrong ? 'chip-wrong' : ''}`}
+          >
+            {filterWrong ? `✓ 僅顯示錯題 (${wrongCount})` : `僅顯示錯題 (${wrongCount})`}
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 gap-2">
+          {displayList.length === 0 ? (
+            <div className="surface-soft rounded-lg p-6 text-dim text-center text-sm">
+              沒有符合條件的題目
+            </div>
+          ) : (
+            displayList.map(item => (
+              <button
+                key={item.q.id}
+                onClick={() => onReview && onReview(item.q.id)}
+                className="surface rounded-lg p-4 text-left card-hover flex items-center gap-4"
+              >
+                <span className="font-mono text-xs text-subtle w-10">#{item.index}</span>
+                <span className="font-mono text-xs text-dim w-24 whitespace-nowrap">
+                  {item.q.year}-{item.q.session}-{String(item.q.number).padStart(2, '0')}
+                </span>
+                {item.q.category && (
+                  <span className="chip text-xs hidden sm:inline-flex">{item.q.category}</span>
+                )}
+                <span className="flex-1 text-sm text-soft truncate">
+                  {item.q.question.slice(0, 60)}{item.q.question.length > 60 ? '…' : ''}
+                </span>
+                {item.answered ? (
+                  item.correct ? (
+                    <span style={{ color: 'var(--correct)' }}><IconCheck size={18}/></span>
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--wrong)' }}>
+                      <IconX size={16}/>
+                      <span className="font-mono">{item.selected} → {item.q.answer}</span>
+                    </span>
+                  )
+                ) : (
+                  <span className="text-xs text-subtle font-mono">未答</span>
+                )}
+              </button>
+            ))
+          )}
+        </div>
+      </section>
+    </main>
+  );
+}
+
+/* =========================================================================
+   MockHistory — 歷次模擬考列表
+   ========================================================================= */
+function MockHistory({ history, onBack, onSelectRecord, onDeleteRecord }) {
+  const sorted = [...history].sort((a, b) => b.finishedAt - a.finishedAt);
+
+  return (
+    <main className="max-w-4xl mx-auto px-6 py-10 fadein">
+      <div className="flex items-center justify-between mb-8">
+        <button onClick={onBack} className="text-sm text-dim hover:text-soft flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          返回首頁
+        </button>
+      </div>
+
+      <div className="mb-8">
+        <div className="text-xs font-mono uppercase tracking-[0.2em] text-subtle mb-2">Mock Exam History</div>
+        <h1 className="font-display text-3xl font-medium">歷次模擬考</h1>
+        <p className="text-sm text-dim mt-2">共 {history.length} 次紀錄</p>
+      </div>
+
+      {sorted.length === 0 ? (
+        <div className="surface-soft rounded-lg p-10 text-center text-dim">
+          尚未有模擬考紀錄
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-3">
+          {sorted.map((rec, i) => {
+            const attemptNo = sorted.length - i; // 第 N 次（最新 = 最大 N）
+            const pct = rec.total > 0 ? Math.round((rec.score / rec.total) * 100) : 0;
+            const elapsedMin = Math.floor(rec.elapsedSec / 60);
+            const elapsedSec = rec.elapsedSec % 60;
+            const dateStr = new Date(rec.finishedAt).toLocaleString('zh-TW', {
+              year: 'numeric', month: '2-digit', day: '2-digit',
+              hour: '2-digit', minute: '2-digit'
+            });
+            const scoreColor = pct >= 70 ? 'var(--correct)' : pct >= 50 ? 'var(--accent)' : 'var(--wrong)';
+
+            return (
+              <div key={rec.id} className="surface rounded-lg p-5 flex items-center gap-5 card-hover">
+                <button
+                  onClick={() => onSelectRecord(rec)}
+                  className="flex-1 flex items-center gap-5 text-left"
+                >
+                  <div className="font-display text-2xl font-semibold w-14 text-center" style={{ color: 'var(--accent)' }}>
+                    #{attemptNo}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-display text-lg mb-0.5">
+                      第 {attemptNo} 次考試
+                    </div>
+                    <div className="text-xs text-subtle font-mono">{dateStr}</div>
+                  </div>
+                  <div className="hidden sm:flex flex-col items-end text-right">
+                    <div className="font-display text-2xl font-semibold" style={{ color: scoreColor }}>
+                      {rec.score} / {rec.total}
+                    </div>
+                    <div className="text-xs font-mono mt-0.5" style={{ color: scoreColor }}>{pct}%</div>
+                  </div>
+                  <div className="flex flex-col items-end text-xs text-dim whitespace-nowrap">
+                    <div className="font-mono">{elapsedMin}:{String(elapsedSec).padStart(2, '0')}</div>
+                    <div className="font-mono">用時</div>
+                  </div>
+                </button>
+                <button
+                  onClick={() => {
+                    if (confirm(`確定刪除第 ${attemptNo} 次考試紀錄？`)) {
+                      onDeleteRecord(rec.id);
+                    }
+                  }}
+                  className="text-subtle hover:text-[var(--wrong)] transition-colors p-2"
+                  title="刪除此紀錄"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6l-1.5 14a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 6"/>
+                  </svg>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </main>
   );
 }
@@ -13647,6 +13993,7 @@ function App() {
   const [answered, setAnswered] = useState(() => load(STORAGE.answered, {}));
   const [starred, setStarred] = useState(() => load(STORAGE.starred, []));
   const [stats, setStats] = useState(() => load(STORAGE.stats, {}));
+  const [mockHistory, setMockHistory] = useState(() => load(STORAGE.mockHistory, []));
   const [showResetModal, setShowResetModal] = useState(false);
 
   return (
@@ -13667,6 +14014,7 @@ function App() {
             }
           }}
           onViewAnalytics={() => setView({ page: 'analytics' })}
+          onViewMockHistory={() => setView({ page: 'mock-history' })}
           onResetProgress={() => setShowResetModal(true)}
           stats={stats}
           starred={starred}
@@ -13714,10 +14062,43 @@ function App() {
               setView({ page: 'home' });
             }
           }}
+          onMockFinish={(record) => {
+            // 寫入 mockHistory localStorage
+            const next = [...mockHistory, record];
+            setMockHistory(next);
+            save(STORAGE.mockHistory, next);
+            // 切到結果頁
+            setView({ page: 'mock-result', record });
+          }}
           answered={answered}
           setAnswered={setAnswered}
           starred={starred}
           setStarred={setStarred}
+        />
+      )}
+      {view.page === 'mock-result' && (
+        <MockResult
+          record={view.record}
+          fromHistory={view.fromHistory}
+          onBack={() => {
+            if (view.fromHistory) setView({ page: 'mock-history' });
+            else setView({ page: 'home' });
+          }}
+          onReview={(qid) => {
+            // 單題檢視（未來可加單題詳解頁）— 暫不處理
+          }}
+        />
+      )}
+      {view.page === 'mock-history' && (
+        <MockHistory
+          history={mockHistory}
+          onBack={() => setView({ page: 'home' })}
+          onSelectRecord={(record) => setView({ page: 'mock-result', record, fromHistory: true })}
+          onDeleteRecord={(id) => {
+            const next = mockHistory.filter(r => r.id !== id);
+            setMockHistory(next);
+            save(STORAGE.mockHistory, next);
+          }}
         />
       )}
       <footer className="max-w-6xl mx-auto px-6 py-10 text-center">
@@ -13746,6 +14127,7 @@ function App() {
             <div className="surface-soft rounded-md p-3 mb-5 text-xs text-dim font-mono space-y-1">
               <div>• 作答記錄：{Object.keys(answered).length} 題</div>
               <div>• 星號標記：{starred.length} 題</div>
+              <div>• 模擬考紀錄：{mockHistory.length} 次</div>
             </div>
             <div className="flex gap-3 justify-end">
               <button
@@ -13761,10 +14143,12 @@ function App() {
                     localStorage.removeItem(STORAGE.answered);
                     localStorage.removeItem(STORAGE.starred);
                     localStorage.removeItem(STORAGE.stats);
+                    localStorage.removeItem(STORAGE.mockHistory);
                   } catch {}
                   setAnswered({});
                   setStarred([]);
                   setStats({});
+                  setMockHistory([]);
                   setShowResetModal(false);
                   setView({ page: 'home' });
                 }}
