@@ -187,6 +187,75 @@
   details > summary::-webkit-details-marker { display: none; }
   details[open] .chevron { transform: rotate(90deg); }
   .chevron { transition: transform 0.2s ease; }
+
+  /* ===== Markdown content (詳解渲染) ===== */
+  .md-content .md-p { margin: 0 0 0.75em 0; line-height: 1.8; }
+  .md-content .md-p:last-child { margin-bottom: 0; }
+  .md-content strong { font-weight: 600; color: var(--text-0); }
+  .md-content em { font-style: italic; }
+  .md-content .md-h1 {
+    font-size: 1.05rem; font-weight: 700; color: var(--accent-deep);
+    margin: 1.2em 0 0.5em 0; padding-bottom: 0.25em;
+    border-bottom: 2px solid var(--accent-soft);
+  }
+  .md-content .md-h2 {
+    font-size: 1rem; font-weight: 700; color: var(--accent-deep);
+    margin: 1.1em 0 0.5em 0;
+  }
+  .md-content .md-h3 {
+    font-size: 0.95rem; font-weight: 600; color: var(--text-0);
+    margin: 0.9em 0 0.4em 0;
+  }
+  .md-content .md-ul, .md-content .md-ol {
+    margin: 0 0 0.75em 0; padding-left: 1.4em;
+  }
+  .md-content .md-ul li, .md-content .md-ol li {
+    margin: 0.25em 0; line-height: 1.75;
+  }
+  .md-content .md-ul { list-style-type: disc; }
+  .md-content .md-ol { list-style-type: decimal; }
+  .md-content .md-spacer { height: 0.4em; }
+  .md-content .md-inline-code {
+    background: var(--bg-2);
+    padding: 0.12em 0.42em;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.88em;
+    color: var(--accent-deep);
+    border: 1px solid var(--border);
+  }
+  .md-content .md-table-wrap {
+    margin: 0.8em 0;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface, #fff);
+  }
+  .md-content .md-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92em;
+  }
+  .md-content .md-table th {
+    background: var(--bg-1);
+    color: var(--accent-deep);
+    font-weight: 600;
+    text-align: left;
+    padding: 0.5em 0.75em;
+    border-bottom: 2px solid var(--accent-soft);
+    white-space: nowrap;
+  }
+  .md-content .md-table td {
+    padding: 0.45em 0.75em;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .md-content .md-table tr:last-child td { border-bottom: none; }
+  .md-content .md-table tr:hover td { background: var(--bg-1); }
+  .md-summary .md-p { margin-bottom: 0.5em; }
+  .md-summary .md-p:last-child { margin-bottom: 0; }
+
   .progress-bar {
     height: 4px;
     background: var(--bg-2);
@@ -6419,6 +6488,138 @@ function IconChevron({ size = 14 }) {
 }
 
 /* =========================================================================
+   Markdown (輕量解析器 — 支援 GFM 表格、粗體、斜體、標題、清單、inline code)
+   ========================================================================= */
+function mdInline(text) {
+  /* 處理 inline 語法 → 回傳 React children 陣列 */
+  if (!text) return null;
+  const parts = [];
+  let key = 0;
+  let remaining = text;
+  /* 依序比對：inline code, 粗體, 斜體 */
+  const patterns = [
+    { re: /`([^`]+?)`/, render: (m) => <code key={key++} className="md-inline-code">{m[1]}</code> },
+    { re: /\*\*([^*]+?)\*\*/, render: (m) => <strong key={key++}>{m[1]}</strong> },
+    { re: /\*([^*]+?)\*/, render: (m) => <em key={key++}>{m[1]}</em> },
+  ];
+  while (remaining.length > 0) {
+    let earliest = null;
+    let earliestPatIdx = -1;
+    patterns.forEach((p, idx) => {
+      const m = remaining.match(p.re);
+      if (m && (earliest === null || m.index < earliest.index)) {
+        earliest = m;
+        earliestPatIdx = idx;
+      }
+    });
+    if (!earliest) {
+      parts.push(remaining);
+      break;
+    }
+    if (earliest.index > 0) parts.push(remaining.slice(0, earliest.index));
+    parts.push(patterns[earliestPatIdx].render(earliest));
+    remaining = remaining.slice(earliest.index + earliest[0].length);
+  }
+  return parts;
+}
+
+function Markdown({ text }) {
+  if (!text) return null;
+  const lines = text.split('\n');
+  const elements = [];
+  let i = 0;
+  let keyCounter = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    /* 表格偵測：當前行含 | 且下一行是 |---| 分隔線 */
+    if (line.includes('|') && i + 1 < lines.length && /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)+\|?\s*$/.test(lines[i + 1])) {
+      const headerCells = line.split('|').map(c => c.trim()).filter((c, idx, arr) => !(idx === 0 && c === '') && !(idx === arr.length - 1 && c === ''));
+      const bodyRows = [];
+      i += 2;
+      while (i < lines.length && lines[i].includes('|') && lines[i].trim() !== '') {
+        const cells = lines[i].split('|').map(c => c.trim()).filter((c, idx, arr) => !(idx === 0 && c === '') && !(idx === arr.length - 1 && c === ''));
+        bodyRows.push(cells);
+        i++;
+      }
+      elements.push(
+        <div key={keyCounter++} className="md-table-wrap">
+          <table className="md-table">
+            <thead>
+              <tr>{headerCells.map((c, j) => <th key={j}>{mdInline(c)}</th>)}</tr>
+            </thead>
+            <tbody>
+              {bodyRows.map((row, rIdx) => (
+                <tr key={rIdx}>{row.map((c, j) => <td key={j}>{mdInline(c)}</td>)}</tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      continue;
+    }
+
+    /* 標題 */
+    const h3 = line.match(/^###\s+(.+)$/);
+    if (h3) { elements.push(<h4 key={keyCounter++} className="md-h3">{mdInline(h3[1])}</h4>); i++; continue; }
+    const h2 = line.match(/^##\s+(.+)$/);
+    if (h2) { elements.push(<h3 key={keyCounter++} className="md-h2">{mdInline(h2[1])}</h3>); i++; continue; }
+    const h1 = line.match(/^#\s+(.+)$/);
+    if (h1) { elements.push(<h3 key={keyCounter++} className="md-h1">{mdInline(h1[1])}</h3>); i++; continue; }
+
+    /* 無序清單 */
+    if (/^\s*[-•]\s+/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\s*[-•]\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*[-•]\s+/, ''));
+        i++;
+      }
+      elements.push(
+        <ul key={keyCounter++} className="md-ul">
+          {items.map((it, j) => <li key={j}>{mdInline(it)}</li>)}
+        </ul>
+      );
+      continue;
+    }
+
+    /* 有序清單 */
+    if (/^\s*\d+\.\s+/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*\d+\.\s+/, ''));
+        i++;
+      }
+      elements.push(
+        <ol key={keyCounter++} className="md-ol">
+          {items.map((it, j) => <li key={j}>{mdInline(it)}</li>)}
+        </ol>
+      );
+      continue;
+    }
+
+    /* 空行：段落分隔 */
+    if (line.trim() === '') {
+      elements.push(<div key={keyCounter++} className="md-spacer"/>);
+      i++;
+      continue;
+    }
+
+    /* 一般段落（合併連續非空白非特殊行） */
+    const paraLines = [line];
+    i++;
+    while (i < lines.length && lines[i].trim() !== '' &&
+           !lines[i].match(/^(#+\s+|[-•]\s+|\d+\.\s+)/) &&
+           !(lines[i].includes('|') && i + 1 < lines.length && /^\s*\|?\s*:?-+:?/.test(lines[i + 1]))) {
+      paraLines.push(lines[i]);
+      i++;
+    }
+    elements.push(<p key={keyCounter++} className="md-p">{mdInline(paraLines.join(' '))}</p>);
+  }
+  return <>{elements}</>;
+}
+
+/* =========================================================================
    Header
    ========================================================================= */
 function Header({ onHome, answeredCount, totalCount }) {
@@ -7166,17 +7367,17 @@ function Practice({ mode, year, session, category, startIdx, onExit, answered, s
             <span className="font-display italic text-lg" style={{ color: 'var(--accent)' }}>Explanation</span>
             <span className="text-xs font-mono text-subtle">/ 詳解</span>
           </div>
-          <p className="text-soft leading-relaxed mb-4 whitespace-pre-wrap">
-            {q.explanation.summary}
-          </p>
+          <div className="text-soft leading-relaxed mb-4 md-content md-summary">
+            <Markdown text={q.explanation.summary} />
+          </div>
           {q.explanation.detail && (
             <details className="mb-4">
               <summary className="text-sm flex items-center gap-1.5 accent hover:text-[var(--accent-dim)] mb-3">
                 <IconChevron size={12}/>
                 展開完整詳解
               </summary>
-              <div className="text-sm text-soft leading-[1.85] whitespace-pre-wrap pl-4 border-l hairline-strong">
-                {q.explanation.detail}
+              <div className="text-sm text-soft leading-[1.85] pl-4 border-l hairline-strong md-content">
+                <Markdown text={q.explanation.detail} />
               </div>
             </details>
           )}
