@@ -16706,6 +16706,257 @@ const QUESTIONS = [
       ]
     }
   }
+  ,
+  {
+    "id": "112-1-041",
+    "year": 112,
+    "session": 1,
+    "number": 41,
+    "category": "心肺復健",
+    "question": "一位 65 歲女性接受運動心肺功能測試，部份結果如下：心跳率 (HR,次/分)：76 (休息)；145 (最大心跳率)；140 (運動結束後第 1 分鐘)；130 (結束後第 2 分鐘)，血壓 (BP,mmHg)：136/78 (休息)；200/98 (最大值)，血氧飽和濃度 (SpO2)：99% (休息)；91% (最低)，R 值：達 1.18 (停止測試)，下列描述何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "此為 symptom-limited CPET" },
+      { "key": "B", "text": "此受試者有 exercise-limited hypoxemia" },
+      { "key": "C", "text": "此受試者有 exaggerated BP response" },
+      { "key": "D", "text": "此受試者有 chronotropic incompetence" },
+      { "key": "E", "text": "此受試者有 abnormal recovery HR response" }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "(D) 錯誤。病人 65 歲預測最大心率 = 220-65 = **155**，實測 **145 (94% 預測值)**，**沒有** chronotropic incompetence（定義：最大心率 < 預測值的 80-85%）。其他選項均符合判讀。",
+      "detail": "## CPET 報告判讀 — Chronotropic Incompetence\n\n### 核心概念\n\nCPET (cardiopulmonary exercise test) 是心肺功能最完整的評估工具，透過運動時的心率、血壓、血氧、換氣等變化來判斷運動限制的原因。本題考查**各種運動異常反應的定義**。\n\n### 本案例的數據分析\n\n| 參數 | 數值 | 預測值 | 解讀 |\n|---|---|---|---|\n| 年齡 | 65 歲 | — | — |\n| **最大心率** | 145 bpm | 220-65 = **155** | **94% 預測值 → 正常** |\n| 休息 BP | 136/78 | — | 高血壓前期 |\n| **最大 BP** | **200/98** | 男<210/女<190 | **> 190 → 高血壓反應** |\n| 休息 SpO2 | 99% | — | 正常 |\n| **最低 SpO2** | **91%** | 運動中應 ≥ 95% | **運動誘發低血氧** |\n| **R 值** | **1.18** | 停止測試需 > 1.10 | **已達最大努力** |\n| **恢復期 HR**（1分鐘下降）| 145→140 = **5 bpm** | 應 ≥ 12 bpm | **異常** |\n\n### 各選項分析\n\n**(A) 正確**。**Symptom-limited CPET**：\n- 病人因**症狀**（喘、胸痛、疲累）停止\n- R 值 1.18 > 1.10 顯示已達最大努力\n- 不是因任務完成（time-limited）或為特定 HR 目標（HR-limited）而停止\n- 這是 CPET 最常見的終止方式\n\n**(B) 正確**。**Exercise-induced hypoxemia（運動誘發低血氧）**：\n- 休息 SpO2 99%（正常）\n- 運動中**SpO2 降至 91%**\n- SpO2 **下降 ≥ 4%** 或**< 88%** 視為異常\n- 本例下降 8% 且最低 91%，符合運動誘發低血氧\n- 常見於：**肺疾病**（COPD、ILD、肺動脈高壓）、心內分流\n\n**(C) 正確**。**Exaggerated BP response（誇張血壓反應）**：\n- 成人運動最大 SBP：男性 < 210 mmHg，女性 < 190 mmHg\n- DBP 上升 **< 10 mmHg**（正常）；上升 **> 15 mmHg** 異常\n- 本例：\n  - SBP：136 → 200（+64 mmHg）\n  - DBP：78 → 98（**+20 mmHg**）\n- **DBP 上升 > 15 mmHg 視為高血壓反應**\n- 預示未來高血壓、心血管事件風險\n\n**(D) 錯誤**（本題答案）。這是**本題關鍵**。**Chronotropic incompetence（心率反應不足）**：\n\n**定義**：最大運動心率 **< 預測最大心率的 80-85%**\n\n**計算**：\n- 預測最大心率 = 220 - 年齡 = 220 - 65 = **155 bpm**\n- 實測最大心率 = 145 bpm\n- **達成率 = 145 / 155 = 94%** ← **正常範圍**\n\n→ **沒有 chronotropic incompetence**\n\n**若要符合 chronotropic incompetence**：\n- 心率應 < 155 × 0.85 = **132 bpm** 以下\n- 本例 145 bpm 未達到此標準\n\n**Chronotropic incompetence 的原因**：\n- β-blocker 使用\n- 竇房結功能異常\n- 心房纖維顫動\n- 重度心衰竭\n- 自律神經病變\n\n**(E) 正確**。**Abnormal heart rate recovery（心率恢復異常）**：\n\n**定義**：\n- 運動停止後**第 1 分鐘心率下降 < 12 bpm** → **異常**\n- 第 2 分鐘下降 < 22 bpm → 異常\n\n本例：\n- 最大 HR：145\n- 運動後 1 分鐘：140（**僅下降 5 bpm**）← **異常**\n- 運動後 2 分鐘：130（下降 15 bpm）\n\n→ **Abnormal HR recovery**\n\n**臨床意義**：\n- 反映**副交感神經活性低下**\n- 與**全因死亡率**顯著相關\n- 心衰竭、糖尿病、自律神經病變常見\n\n### CPET 判讀核心指標\n\n| 指標 | 正常 | 異常 | 意義 |\n|---|---|---|---|\n| **VO2 peak** | > 20 mL/kg/min | < 14 危險 | 心肺綜合功能 |\n| **VO2 max 達預測** | > 84% | < 60% 異常 | 功能 |\n| **RER (R 值)** | > 1.10 (最大努力) | < 1.0 未盡力 | 努力程度 |\n| **VE/VCO2 slope** | < 30 | > 35 異常 | 心衰竭預後 |\n| **AT (無氧閾值)** | > 40% VO2max | 太低 = 失能 | 心功能 |\n| **Chronotropic index** | > 0.85 | < 0.80 CI | 心率反應 |\n| **HR recovery 1分鐘** | ≥ 12 bpm | < 12 異常 | 副交感 |\n| **SpO2** | 全程 > 95% | 運動降 ≥ 4% 異常 | 氣體交換 |\n| **BP 反應** | 男<210/女<190 | > 者 HTN reactor | 心血管風險 |\n\n### CPET 終止條件\n\n**絕對終止**：\n- SBP 下降 > 10 mmHg + 缺血徵兆\n- 中度以上心絞痛\n- 神經症狀（頭暈、步態不穩）\n- 灌流不足徵兆（蒼白、發紺）\n- 心律不整警訊\n- 嚴重缺氧 (SpO2 < 80%)\n\n**相對終止**：\n- SBP 下降 > 10 mmHg 無缺血徵兆\n- SBP > 250 或 DBP > 115\n- 無症狀心律不整\n- 疲累、呼吸困難、跛行\n- 非持續性室性心跳\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| Chronotropic incomp. | **最大 HR < 預測 85%** |\n| HR recovery 異常 | **1 分鐘 < 12 bpm** |\n| Exercise hypoxemia | SpO2 降 ≥ 4% 或 < 88% |\n| Exaggerated BP | 男 >210/女 >190；DBP 升 >15 |\n| RER > 1.10 | 最大努力 |\n| Symptom-limited | 因症狀停止 |",
+      "sources": [
+        { "text": "ACSM's Guidelines for Exercise Testing and Prescription, 11th ed.", "url": null },
+        { "text": "Wasserman's Principles of Exercise Testing and Interpretation, 5th ed.", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-042",
+    "year": 112,
+    "session": 1,
+    "number": 42,
+    "category": "心肺復健",
+    "question": "針對裝置 left ventricular assist devices (LVAD) 後的病人進行心臟復健治療時，下列的相關敘述何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "運動強度漸增時，心跳率與血流皆會線性增加" },
+      { "key": "B", "text": "作為運動強度設定，自覺用力指數會比用心跳率更為合適" },
+      { "key": "C", "text": "心輸出量在裝置 LVAD 後可改善，而病人的運動耐受性通常是被 LVAD 所設定的 peak flow 所限制" },
+      { "key": "D", "text": "已有研究顯示可接受阻力運動訓練" },
+      { "key": "E", "text": "運動中的血壓測量，手持式血壓偵測器比都卜勒超音波 (Doppler ultrasound) 偵測更可靠" }
+    ],
+    "answer": "E",
+    "explanation": {
+      "summary": "(E) 錯誤。現代 LVAD（如 HeartMate 3）是**連續流 (continuous flow)** 裝置，**沒有傳統的脈搏壓 (pulse pressure)**，因此**手持式血壓計常測不到**；**都卜勒超音波**才能可靠偵測平均動脈壓 (MAP)。",
+      "detail": "## 左心室輔助裝置 (LVAD) 病人的心臟復健\n\n### 核心概念\n\n**LVAD (Left Ventricular Assist Device)** 是末期心衰竭病人的重要橋接或終點治療。現代 LVAD 多為 **continuous flow (連續流)** 裝置，失去正常的脈動性，使得血壓測量、脈搏偵測都需特殊技術。\n\n### LVAD 類型演進\n\n| 世代 | 代表 | 血流模式 |\n|---|---|---|\n| 第 1 代 | HeartMate I (pulsatile) | 脈動流 |\n| 第 2 代 | HeartMate II, Jarvik 2000 | **軸流連續流** |\n| 第 3 代 | **HeartMate 3**, HeartWare | **磁浮離心流** |\n\n目前臨床主流為第 2-3 代 **continuous flow LVAD**。\n\n### LVAD 的生理特徵\n\n| 特徵 | 機制 |\n|---|---|\n| **連續流 (無 pulse pressure)** | 離心幫浦持續輸出 |\n| **手腕脈搏摸不到** | 傳統觸診失效 |\n| **傳統血壓計無法測** | 缺乏收縮/舒張壓差 |\n| **需 Doppler 偵測 MAP** | 標準測量方法 |\n| **心輸出量改善** | 減輕左心室負擔 |\n| **peak flow 有上限** | 幫浦設定決定運動上限 |\n\n### 各選項分析\n\n**(A) 正確**。LVAD 下運動強度與心率、血流：\n- 當運動強度增加時，**native heart 仍在跳**（雖衰弱）\n- 心跳率會隨運動增加\n- LVAD 的血流 **隨 preload 增加而增加**（Frank-Starling 效應仍運作）\n- 運動時靜脈回流增加 → LVAD 血流增加\n- 兩者**線性增加**（在 peak flow 設定範圍內）\n\n**(B) 正確**。**RPE (Borg scale) 優於心率**：\n- LVAD 病人的心率受疾病、藥物、LVAD 設定影響\n- **心率不是可靠的運動強度指標**\n- **RPE (Borg 6-20 scale)** 或 Borg CR-10 是較佳選擇\n- 目標 RPE 11-13\n- 也可補充使用呼吸困難量表\n\n**(C) 正確**。LVAD 的血流限制：\n- LVAD 改善心輸出量：從嚴重衰竭的 < 2 L/min 到正常的 4-6 L/min\n- **運動耐受性改善**，但仍有上限\n- **LVAD 的 peak flow 設定決定運動最大流量**\n- 當運動需求超過 LVAD peak flow 設定 → 心輸出量無法再增加 → 運動耐受極限\n- 復健治療師需了解該病人的 LVAD 設定\n\n**(D) 正確**。**LVAD 病人可接受阻力運動**：\n- 多項研究（包含 Hayes, Corra 等）顯示阻力訓練**安全有效**\n- 起始強度：**低強度** (30-40% 1-RM)\n- **漸進性增加**（可達 50-70% 1-RM）\n- **避免 Valsalva**（會影響 preload 與 LVAD 流量）\n- 避免胸骨區域劇烈運動（手術疤痕、裝置區）\n- 一般術後 6-8 週開始\n\n**(E) 錯誤**（本題答案）。這是**本題關鍵**。**LVAD 血壓測量**：\n\n**手持式 / 自動血壓計的限制**：\n- 基於**聽到柯氏音**或**偵測振動**\n- Continuous flow LVAD **pulse pressure 極小或無**\n- **無法偵測** → 經常顯示「error」或極低數值\n\n**都卜勒超音波 (Doppler) 優勢**：\n- 使用**連續波都卜勒**偵測肱動脈血流聲\n- 放氣球至血流聲消失 = MAP（**平均動脈壓**）\n- 是 LVAD 病人血壓測量的 **gold standard**\n- 目標 MAP 70-90 mmHg（依 LVAD 型號與病人狀況）\n- 過高 MAP 增加 LVAD 後負荷、減少輸出；過低則灌流不足\n\n→ 題目說「手持式比都卜勒更可靠」**完全相反**\n\n### LVAD 病人的復健評估重點\n\n| 項目 | 方法 |\n|---|---|\n| 血壓 | **Doppler 測 MAP** |\n| 運動強度 | **RPE** |\n| 運動測試 | 6MWT、次最大運動測試 |\n| LVAD 參數監測 | Flow, speed, power, PI |\n| 警訊 | Suction events、低 flow、高 power |\n\n### LVAD 並發症與運動禁忌\n\n**絕對禁忌**：\n- 近期 suction event\n- 失血、血栓徵兆\n- 嚴重感染\n- 嚴重心律不整\n\n**相對禁忌**：\n- 不穩定裝置功能\n- 嚴重右心衰竭\n- 近期 ICD 放電\n\n### LVAD 的預期復健成果\n\n| 參數 | 改善 |\n|---|---|\n| 6MWT | +100-150 公尺 |\n| VO2 peak | +10-20% |\n| NYHA class | I-II 階 |\n| 生活品質 | 顯著改善 |\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| LVAD 類型 | 連續流（現代） |\n| BP 測量 | **Doppler > 手持式** |\n| 運動強度指標 | **RPE** |\n| 血流增加 | 運動時線性增加 |\n| 阻力運動 | 可做，避免 Valsalva |\n| MAP 目標 | 70-90 mmHg |",
+      "sources": [
+        { "text": "AACVPR Guidelines for Cardiac Rehabilitation, 6th ed., Ch. LVAD", "url": null },
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 34 Cardiac Rehabilitation", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-043",
+    "year": 112,
+    "session": 1,
+    "number": 43,
+    "category": "心肺復健",
+    "question": "下列關於病人的心肺運動測試報告判讀描述，何者判讀較不合理？(RER: respiratory exchange ratio)",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "血氧濃度 (O2 saturation) >90%、RER 值 >1.15、攝氧量 (VO2max) 逐漸上升、VE/CO2 <35，可能為正常結果" },
+      { "key": "B", "text": "血氧濃度 (O2 saturation) <90%、RER 值 <1.15、攝氧量 (VO2max) 慢慢上升、VE/CO2 升高，可能為肺臟問題" },
+      { "key": "C", "text": "血氧濃度正常或下降、RER 值 >1.15、攝氧量 (VO2max) 慢慢上升漸平坦、VE/CO2 降低，推測是心臟問題" },
+      { "key": "D", "text": "血氧濃度 >90%、RER 值 >1.15、攝氧量 (VO2max) 慢慢上升、VE/CO2 正常，推測為體適能不佳 (poor fitness)" },
+      { "key": "E", "text": "血氧濃度 >90%、RER 值 <1.15、攝氧量 (VO2max) 慢慢上升、VE/CO2 正常，推測為沒有盡力做運動檢查 (poor effort)" }
+    ],
+    "answer": "C",
+    "explanation": {
+      "summary": "(C) 不合理。心臟疾病特徵是 **VE/VCO2 slope 升高（> 34-35）**（反映通氣效率差），而非降低。其他參數（VO2 max 平坦、RER 高）符合心臟問題，但 VE/VCO2 方向描述錯誤。",
+      "detail": "## CPET 報告的系統性判讀\n\n### 核心概念\n\nCPET 判讀有**四大關鍵指標**的組合模式，各種疾病有特徵性的表現：\n\n| 指標 | 正常 | 意義 |\n|---|---|---|\n| **VO2 max / peak** | > 84% 預測值 | 整體心肺功能 |\n| **RER (R 值)** | > 1.10-1.15 時為最大努力 | 努力程度 |\n| **SpO2** | 全程 > 95% | 氣體交換 |\n| **VE/VCO2** | **< 30-34** | 通氣效率 |\n\n### 各種疾病的 CPET 特徵模式\n\n| 疾病 | VO2 max | RER | SpO2 | VE/VCO2 |\n|---|---|---|---|---|\n| **正常** | 正常 | > 1.10 | > 95% | < 30 |\n| **肺臟疾病** | 低 | **< 1.15**（通氣限制）| **下降** | **升高** |\n| **心臟疾病** | 低 | > 1.15 | 可下降（若分流）| **升高 (> 34-35)** |\n| **體適能不佳** | 低 | > 1.15（達努力）| > 90% | 正常 |\n| **未盡力** | 低 | **< 1.10** | > 90% | 正常 |\n\n### 各選項分析\n\n**(A) 正確**。正常 CPET 結果：\n- SpO2 > 90%（運動中維持氣體交換）\n- **RER > 1.15** 表示已達最大努力\n- VO2max 逐漸上升（無早期平坦）\n- **VE/VCO2 < 35**（通氣效率正常）\n- 這組合是典型正常結果\n\n**(B) 正確**。**肺臟疾病** 的特徵：\n- **SpO2 < 90%**：運動誘發低血氧（V/Q mismatch、分流）\n- **RER < 1.15**：通氣限制使病人無法達到最大努力（因呼吸困難先放棄）\n- VO2max 慢慢上升：運動能力受限於肺部\n- **VE/VCO2 升高**：通氣效率差、dead space 增加\n- 這組合典型為**肺疾病**\n\n**(C) 錯誤**（本題答案）。這是**本題關鍵**。\n**題目敘述的前半部正確（心臟問題特徵）**：\n- SpO2 正常或下降\n- RER > 1.15（心臟病人能用力）\n- VO2max 慢慢上升漸平坦（心輸出量限制）\n\n**但「VE/VCO2 降低」錯誤**：\n- **心臟疾病的典型特徵是 VE/VCO2 slope 升高 (> 34-35)**\n- 原因：\n  - 心衰竭造成肺血管床灌注異常、V/Q mismatch\n  - Pulmonary dead space 增加\n  - 化學感受器過度敏感\n  - Sympathetic over-activity\n- VE/VCO2 > 34-35 是**心衰竭的獨立預後指標**（高者死亡率高）\n- VE/VCO2 > 45 為嚴重心衰竭\n\n**心臟病特徵應該是 VE/VCO2 升高**，題目寫降低 → 判讀**不合理**。\n\n**(D) 正確**。**體適能不佳 (Deconditioning)**：\n- SpO2 正常（心肺結構完整）\n- RER > 1.15（已盡力）\n- VO2max 低且慢慢上升\n- VE/VCO2 **正常**（心肺都正常，只是缺乏訓練）\n- 治療：漸進式運動訓練\n\n**(E) 正確**。**未盡力 (Poor effort)**：\n- SpO2 正常\n- **RER < 1.15**（未達最大努力）\n- VO2max 慢慢上升\n- VE/VCO2 正常\n- 需與病人溝通、重新測試\n\n### VE/VCO2 slope 的臨床意義\n\n**VE/VCO2 slope**：代表通氣效率（每排除 1 L CO2 需要的通氣量）\n\n| 數值 | 意義 |\n|---|---|\n| < 30 | 正常 |\n| **30-34** | 輕度異常 |\n| **34-40** | 中度（心衰竭預後不良）|\n| **> 40** | 嚴重（考慮移植）|\n| > 45 | 極嚴重 |\n\n**臨床應用**：\n- 心衰竭的**獨立預後指標**\n- **Peak VO2 + VE/VCO2 slope** 合併判斷比單用 VO2 更準確\n- Weber Class 是心衰竭 CPET 分類（A-D）\n\n### RER (Respiratory Exchange Ratio) 的判讀\n\n```\nRER = VCO2 / VO2\n```\n\n- 靜息：~0.8 (以脂肪為主燃料)\n- 次最大運動：~0.95 (混合代謝)\n- **最大運動：> 1.10** (以糖解為主 + 緩衝 H+)\n- **> 1.15** 通常確認達最大努力\n\n### CPET 核心圖表（Wasserman 9-panel plot）\n\n**常看的 panel**：\n1. VO2/WR\n2. HR/O2 pulse\n3. VE/VCO2\n4. VCO2/VO2 (AT)\n5. VE/VO2\n6. EtCO2\n\n### 考點速記\n\n| 疾病 | 特徵組合 |\n|---|---|\n| 正常 | RER > 1.15, SpO2 > 95%, VE/VCO2 < 30 |\n| 肺疾病 | RER < 1.15, **SpO2 ↓**, **VE/VCO2 ↑** |\n| 心臟病 | RER > 1.15, **VE/VCO2 ↑** (不是降)|\n| Deconditioning | RER > 1.15, VE/VCO2 正常 |\n| Poor effort | **RER < 1.15**, VE/VCO2 正常 |",
+      "sources": [
+        { "text": "Wasserman's Principles of Exercise Testing and Interpretation, 5th ed.", "url": null },
+        { "text": "ATS/ACCP Statement on Cardiopulmonary Exercise Testing", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-044",
+    "year": 112,
+    "session": 1,
+    "number": 44,
+    "category": "心肺復健",
+    "question": "下列關於裝有心律節律器或去顫器 (ICD) 患者的復健敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "心臟復健對於裝有心律節律器或去顫器 (ICD) 患者是安全的，但需要把心電圖監測的運動訓練時間延長" },
+      { "key": "B", "text": "在心肺復健前須確認 pacemaker 的設定 (mode、HR limits) 及 ICD 的設定 (心律偵測模式)" },
+      { "key": "C", "text": "開始心肺復健前，應使用運動測試來評估心率和節律反應，若運動測試期間心率不增加，則需先調整 exercise sensing mechanism 允許心跳隨著運動增加" },
+      { "key": "D", "text": "若 ICD 當初設定的心率上限值為 150 bpm，則患者的運動目標心率應設定在 145 bpm 以下" },
+      { "key": "E", "text": "在植入儀器後 24 小時即可做上肢輕度關節活動，劇烈的上肢運動至少要一個月才能做" }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "(D) 錯誤。運動目標心率應**至少比 ICD 放電心率閾值 (therapy zone) 低 10-20 bpm**，而非僅低 5 bpm。ICD 150 bpm 閾值時運動目標應設定在 **130-140 bpm 以下**，避免誤放電。",
+      "detail": "## ICD / Pacemaker 病人的心臟復健\n\n### 核心概念\n\n植入式心律節律器 (pacemaker) 與植入式去顫器 (ICD) 病人**可以安全接受心臟復健**，但需特殊注意裝置設定、運動心率上限、上肢活動限制。\n\n### 關鍵設定參數\n\n**Pacemaker 設定**：\n- **Mode** (VVI、DDD、DDDR...)\n- **Lower rate limit**（如 60 bpm）\n- **Upper rate limit**（如 120-130 bpm）\n- **Rate-responsive (R)** 是否開啟\n\n**ICD 設定**：\n- **Detection zone**（心律異常偵測心率閾值）\n- **Therapy zone**（放電治療閾值，如 > 180 bpm）\n- **Monitor zone**（僅監測，不放電）\n\n### 各選項分析\n\n**(A) 正確**。ICD/PM 病人**心臟復健安全**，但建議：\n- **延長 ECG 監測時間**（比一般病人久）\n- 通常第一階段全程監測\n- 之後視穩定度逐漸減少\n- 持續 RPE、症狀監測\n\n**(B) 正確**。復健前**必須確認裝置設定**：\n- **Pacemaker**：mode、HR limits、rate-responsive 是否開\n- **ICD**：detection/therapy zone 的 HR 閾值\n- **為運動處方設定安全範圍的依據**\n- 需要病人的裝置卡或廠商資訊\n\n**(C) 正確**。運動測試評估：\n- 測試**心率反應**是否正常\n- 若運動時心率**不增加** → 可能是：\n  - Rate-responsive 未開\n  - 感測機制 (activity sensor) 敏感度不足\n  - 需要**調整裝置設定**（programming）\n- 之後才能安全運動\n\n**(D) 錯誤**（本題答案）。這是**本題關鍵**。**運動目標心率的安全邊界**：\n\n**安全原則**：運動目標心率應比 **ICD 放電心率閾值 (therapy zone)** 至少**低 10-20 bpm**。\n\n**計算**：\n- ICD therapy zone 設定 150 bpm\n- 安全邊界應**減 10-20 bpm**\n- 運動目標心率應 **< 130-140 bpm**\n\n題目說「設 145 bpm 以下」**邊界太近**：\n- 僅低 5 bpm 容易誤觸發放電\n- 特別是運動中心律不規律時可能超過閾值\n- 誤放電痛苦且可能誘發心律不整\n\n**正確做法**：\n- 安全目標 HR = ICD 閾值 - 10-20 bpm\n- 200 bpm 閾值 → 目標 < 180 bpm\n- 180 bpm 閾值 → 目標 < 160 bpm\n- **150 bpm 閾值 → 目標 < 130-140 bpm**\n- 使用 RPE 作為補充\n\n**(E) 正確**。植入後的**上肢活動限制**：\n- **24 小時**後：**輕度 ROM**（避免僵硬）\n- **1-2 週**：大致正常日常活動（無重力、無舉過頭）\n- **至少 1 個月**：避免劇烈上肢運動\n- **6-8 週**：線路 (lead) 在心臟內穩定後才可舉重、劇烈上肢運動\n- 目的：**防止 lead 位移**（dislodgement）\n\n### ICD 誤放電的常見原因\n\n| 原因 | 機制 |\n|---|---|\n| **竇性心搏過速** | 運動、情緒 → 心率超過 detection zone |\n| 心房纖維顫動 | 快速心室反應超過閾值 |\n| **T-wave oversensing** | 誤認為 R wave 而計錯 |\n| Lead fracture | 雜訊被誤認為心室顫動 |\n| Noise (磁場) | 外部電磁干擾 |\n\n運動中最常見的是**竇性心搏過速超過 detection zone**。\n\n### 復健訓練的注意事項\n\n**絕對禁忌**：\n- 不穩定心律不整\n- 近期 ICD 放電\n- 裝置功能異常\n- 急性感染（裝置囊）\n\n**運動過程**：\n- 監測心率、ECG、症狀\n- **RPE 為主**（12-13 中等強度）\n- 避免 Valsalva\n- 暖身、緩和充分\n- 若異常立即停止\n\n**上肢復健特別注意**：\n- 避免肩外展 > 90°（早期）\n- 避免同側搬重物\n- 避免強度訓練靠近裝置區\n\n### 藥物注意\n\n| 藥物 | 影響 |\n|---|---|\n| β-blocker | 抑制運動 HR，需調整目標 HR |\n| Amiodarone | 改變除顫閾值 |\n| Digoxin | 心律監測需注意 |\n| ACEI/ARB | 一般安全 |\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| 安全 HR 邊界 | ICD 閾值 - **10-20 bpm** |\n| 上肢 ROM | 24h 後可輕度 |\n| 劇烈上肢 | **至少 1 月** |\n| 運動指標 | **RPE** 輔助 HR |\n| 復健前確認 | PM mode、ICD zone |\n| HR 不增加 | 調整 rate-response |",
+      "sources": [
+        { "text": "AACVPR Guidelines for Cardiac Rehabilitation, 6th ed.", "url": null },
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 34 Cardiac Rehabilitation", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-045",
+    "year": 112,
+    "session": 1,
+    "number": 45,
+    "category": "心肺復健",
+    "question": "下列關於慢性腎疾病患者復健的敘述，何者不正確？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "心肺功能不佳時，建議使用 modified Balke 或 Naughton protocol 測試心肺功能" },
+      { "key": "B", "text": "若患者體能較差，不建議進行間歇性運動 (intermittent exercise with intervals)" },
+      { "key": "C", "text": "接受洗腎者，最大心跳值會較低，建議用 RPE (rating of perceived exertion) 值監測運動強度" },
+      { "key": "D", "text": "應避免在有瘻管的手量測血壓，可以運動但不能在上面施加重量壓力" },
+      { "key": "E", "text": "透析期間可使用踩踏機來運動，通常應在治療的前半段進行以避免低血壓發作" }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "(B) 錯誤。體能較差的 CKD 患者**特別適合間歇性運動 (intermittent exercise)**——短時間運動 + 休息交替，可減少疲勞、提高耐受性，是虛弱病人的首選運動模式。",
+      "detail": "## 慢性腎病 (CKD) 病人的復健\n\n### 核心概念\n\nCKD 病人常合併**心血管疾病、貧血、電解質異常、骨質疏鬆、肌少症、憂鬱**，運動能力受限且死亡率高。運動訓練可改善生活品質、降低死亡率。\n\n### CKD 病人的運動限制因素\n\n| 因素 | 影響 |\n|---|---|\n| **尿毒性心肌病變** | 運動耐受差 |\n| **貧血** | 氧輸送下降 |\n| **骨骼肌萎縮** | 肌少症 |\n| **酸血症** | 運動能力下降 |\n| **自律神經異常** | HR 反應異常 |\n| **瘻管** | 限制運動部位 |\n| **疲勞** | 心理+生理 |\n| **透析時程** | 影響運動安排 |\n\n### 運動測試特殊考量\n\n**Modified Balke 或 Naughton 測試**：\n- 比標準 Bruce 起始強度**更低、進展更緩**\n- Naughton：從 1.0 mph, 0% grade 開始\n- 適合**低運動耐受者**（CKD、心衰竭、長者）\n- 可降低假陰性並減少運動傷害\n\n### 各選項分析\n\n**(A) 正確**。使用**Modified Balke 或 Naughton protocol**：\n- CKD 病人心肺功能多不佳\n- 標準 Bruce 的起始強度過高，易提前中止\n- Modified 版本（低起始 + 小幅度進展）更適合\n- 可準確評估次最大運動能力\n\n**(B) 錯誤**（本題答案）。這是**本題關鍵**。**間歇性運動 (intermittent exercise)**：\n\n**優勢**：\n- **短時間運動 + 休息交替**（如運動 2 min + 休息 1 min）\n- 減少持續性疲勞\n- 可達到較高**總運動量**\n- 乳酸累積較少\n- 心臟負擔較低\n- **特別適合體能差、老年、CKD、心衰竭病人**\n\n**間歇性運動**（短時間低強度片段）**不等於 HIIT**（高強度）——\n- 此處的 intermittent 是指**體能差者的分段運動策略**\n- 是 CKD 復健**推薦的起始方式**\n- 題目說「不建議」→ **錯誤**\n\n**(C) 正確**。**洗腎者最大心率較低**：\n- 原因：自律神經病變、β-blocker 使用、貧血\n- **傳統 220-年齡公式不準**\n- **RPE** 是更可靠的強度指標\n- 目標 RPE 11-14（fairly light to somewhat hard）\n- 搭配症狀監測\n\n**(D) 正確**。**瘻管 (AV fistula) 手臂的注意**：\n- **禁止**：在瘻管手測血壓（可能造成血栓）\n- **禁止**：在瘻管手抽血、打點滴\n- **避免**：重物壓迫瘻管\n- **可以**：正常輕度活動、ROM 運動\n- 瘻管手臂的肌力訓練**避免高阻力**（但可做輕阻力訓練保持肌力）\n\n**(E) 正確**。**透析期間運動 (intradialytic exercise)**：\n- 使用**床邊踩踏機 (recumbent bike)**\n- **建議在治療前半段 (1-2 小時內)** 進行：\n  - 避免後半段因 volume depletion 造成**低血壓**\n  - 此時 volume 狀態相對穩定\n  - 可改善溶質清除（血流增加）\n- 好處：利用時間、不影響日常、提升肌力、改善 QoL\n- 已有多項研究證實效益（如 PEDAL trial）\n\n### CKD 各階段的運動建議\n\n| 階段 | 建議 |\n|---|---|\n| **CKD 1-3** | 一般運動建議（150 min/wk 中強度）|\n| **CKD 4-5 (未透析)** | 漸進式、監測 |\n| **血液透析** | **透析中踩踏機 + 非透析日運動** |\n| **腹膜透析** | 避免腹壓過高運動 |\n| **移植後** | 依時期調整（類似心移植）|\n\n### 運動訓練的好處（CKD 證據）\n\n- 改善 VO2 peak（+15-30%）\n- 改善 6MWT（+50-100m）\n- 改善肌力\n- 改善血壓控制\n- 改善貧血（輕度）\n- 改善憂鬱、生活品質\n- **降低死亡率**（觀察性研究）\n\n### CKD 運動禁忌\n\n**絕對禁忌**：\n- 嚴重高血鉀 (> 6.0)\n- 未控制高血壓\n- 急性感染\n- 近期骨折\n- 不穩定心絞痛\n\n**相對禁忌**：\n- 電解質失衡\n- 嚴重貧血 (Hb < 7)\n- 活動性肌肉骨骼傷\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| CKD 運動測試 | **Modified Balke / Naughton** |\n| 體能差者 | **適合間歇性運動** |\n| 最大 HR | 低於預測、**用 RPE** |\n| 瘻管手 | 不測 BP、不受壓、可輕度運動 |\n| 透析中運動 | **治療前半段**（避免低血壓）|\n| 建議運動型態 | 低中強度有氧 + 阻力 |",
+      "sources": [
+        { "text": "ACSM's Guidelines for Exercise Testing and Prescription, 11th ed., Ch. Chronic Kidney Disease", "url": null },
+        { "text": "KDIGO Clinical Practice Guidelines", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-046",
+    "year": 112,
+    "session": 1,
+    "number": 46,
+    "category": "心肺復健",
+    "question": "下列關於心衰竭病人之敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "心衰竭可依照衰竭的部位與原理分為 systolic dysfunction 和 diastolic dysfunction" },
+      { "key": "B", "text": "導致心衰竭病人 exercise intolerance 原因，包括心臟重塑心肌肥厚而後腔室擴張，心輸出量下降，血管舒張減少，粒線體代謝能力降低，周邊骨骼肌肉病變" },
+      { "key": "C", "text": "可以完成最大運動測試者，可考慮高強度間歇訓練 (high intensity interval training, HIIT)，能較快增加 VO2 peak，主要和左心室 reverse remodeling 相關" },
+      { "key": "D", "text": "增加運動量，應先增加持續運動時間和頻率，再增加強度" },
+      { "key": "E", "text": "心衰病人常有周邊肌肉萎縮，需搭配阻力訓練，訓練初期就可給予高阻力之 isometric exercise" }
+    ],
+    "answer": "E",
+    "explanation": {
+      "summary": "(E) 錯誤。心衰竭病人阻力訓練**應從低強度 (30-40% 1-RM) 開始**，**避免等長高阻力運動**。Isometric 運動會**顯著升高血壓**、增加心臟後負荷，對衰竭心臟危險。",
+      "detail": "## 心衰竭 (Heart Failure) 病人的運動處方\n\n### 核心概念\n\n心衰竭病人運動訓練已被**多項試驗 (HF-ACTION, Cochrane)** 證實**安全有效**。運動訓練可**降低再住院率、改善生活品質、可能降低死亡率**。但**強度與方式須謹慎**。\n\n### 心衰竭的分類\n\n**依收縮/舒張功能**：\n| 類型 | 定義 |\n|---|---|\n| **HFrEF (systolic)** | EF < 40% |\n| **HFpEF (diastolic)** | EF ≥ 50% + 舒張功能異常 |\n| HFmrEF | EF 40-49% |\n\n**依功能分級 (NYHA)**：\n| Class | 症狀 |\n|---|---|\n| I | 無症狀（一般活動） |\n| II | 中度運動有症狀 |\n| III | 輕度活動有症狀 |\n| IV | 休息時有症狀 |\n\n### 心衰竭的 exercise intolerance 機轉\n\n| 因素 | 機制 |\n|---|---|\n| **心輸出量下降** | EF 下降、Starling 曲線左移 |\n| **心臟重塑** | 心肌肥厚 → 擴張 |\n| **周邊血管舒張下降** | 內皮功能失調、NO 不足 |\n| **粒線體功能下降** | 氧化代謝受損 |\n| **骨骼肌病變** | 肌纖維變化、萎縮 |\n| **呼吸肌無力** | 吸氣肌力下降 |\n| **神經內分泌活化** | 交感過度、RAAS 過度 |\n| **化學感受器過度敏感** | 通氣過度 |\n\n這些因素相互影響，是「**心衰竭肌肉假說 (muscle hypothesis)**」的基礎。\n\n### 各選項分析\n\n**(A) 正確**。心衰竭分類：\n- **收縮功能不全 (systolic HF, HFrEF)**：EF 下降、心肌收縮不足\n- **舒張功能不全 (diastolic HF, HFpEF)**：心室硬化、充填受限\n- 依心臟左右側：左心衰竭 / 右心衰竭 / 雙心衰竭\n\n**(B) 正確**。多因素導致 exercise intolerance：\n- 不只是心臟問題，**周邊（血管、骨骼肌、粒線體）也有病變**\n- 這也是為何心衰竭病人**即使 EF 改善**，運動耐受性不必然改善\n- 運動訓練可改善周邊因素\n\n**(C) 正確**。**HIIT (High Intensity Interval Training)**：\n- 適合能完成最大運動測試者（NYHA II-III 穩定期）\n- 典型方案：90% peak HR × 4 min + 70% peak HR × 3 min，4 循環\n- 可**快速增加 VO2 peak**（比中等強度連續運動 MICT 更多）\n- 與**左心室 reverse remodeling** 相關\n- SMARTEX-HF 等試驗證實安全性\n- 但不是所有病人都適合（需個別評估）\n\n**(D) 正確**。運動量進展原則：\n- **先增加「時間 + 頻率」**（體積）\n- **再增加「強度」**\n- 這符合 ACSM **FITT-VP** 原則\n- 對心衰竭病人尤其重要，避免過度強度刺激\n- 逐步適應避免惡化\n\n**(E) 錯誤**（本題答案）。這是**本題關鍵**。**阻力訓練原則**：\n\n**心衰竭病人的阻力訓練**：\n- **起始強度**：**低（30-40% 1-RM）**\n- 進展至中等（50-60% 1-RM）\n- **絕不**在訓練初期給「高阻力等長運動」\n\n**為何避免高阻力 isometric**：\n| 原因 | 機制 |\n|---|---|\n| **血壓激升** | 等長收縮會顯著升高 BP（特別 DBP）|\n| **心臟後負荷增加** | 衰竭心臟難承受 |\n| **Valsalva 效應** | 減少 preload、影響血流動力學 |\n| **沒有容積循環** | 肌肉泵效應缺失 |\n| **誘發心律不整** | 交感過度反應 |\n\n**建議**：\n- 使用**動態阻力訓練 (dynamic resistance)**：等張收縮\n- **避免等長收縮**\n- 避免 Valsalva（呼氣憋氣）\n- 循環訓練（多肌肉群）\n- 每組 10-15 次，3 組\n\n### 心衰竭運動訓練的 FITT 建議\n\n| 項目 | 有氧 | 阻力 |\n|---|---|---|\n| **頻率** | 3-5 次/週 | 2-3 次/週 |\n| **強度** | 40-80% VO2R 或 RPE 11-13 | 30-60% 1-RM |\n| **時間** | 20-60 分 | 10-15 reps × 1-3 sets |\n| **類型** | 走路、騎車、游泳 | **動態阻力**（非等長） |\n\n### 禁忌與警訊\n\n**絕對禁忌**：\n- 未穩定心衰竭（急性惡化）\n- 近期心肌梗塞 (< 2 days)\n- 嚴重主動脈瓣狹窄\n- 急性心肌炎、心包炎\n- 嚴重肺動脈高壓 (PASP > 60)\n- 症狀性心律不整\n\n**停止運動**：\n- SBP 下降 > 10 mmHg\n- 新心律不整\n- 胸痛、嚴重喘、發紺\n- SpO2 < 90%\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| 心衰竭分類 | HFrEF / HFpEF |\n| Exercise intolerance | 多因素（心+周邊）|\n| HIIT | 穩定期可考慮 |\n| 阻力起始 | **30-40% 1-RM 動態** |\n| **禁忌** | **高阻力等長運動** |\n| 進展原則 | 先時間+頻率，後強度 |",
+      "sources": [
+        { "text": "ACSM's Guidelines for Exercise Testing and Prescription, 11th ed., Ch. Heart Failure", "url": null },
+        { "text": "AHA/ACC/HFSA Guideline for the Management of Heart Failure, 2022", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-047",
+    "year": 112,
+    "session": 1,
+    "number": 47,
+    "category": "腦傷",
+    "question": "一位梗塞型腦中風個案語言狀況，有流暢自發性語句，但出現語意型錯誤，無法講出自己想要的物品名稱。雖能覆誦，但語意型錯誤多，且理解困難，其腦中風區域最可能在那個部位？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "後上顳葉" },
+      { "key": "B", "text": "後下顳葉" },
+      { "key": "C", "text": "前上額葉" },
+      { "key": "D", "text": "後上頂葉" },
+      { "key": "E", "text": "顳頂葉" }
+    ],
+    "answer": "A",
+    "explanation": {
+      "summary": "(A) 正確。本例為**典型 Wernicke's aphasia**：**流暢但有語意錯誤 + 理解差**——病灶位於**優勢半球的後上顳葉 (Wernicke's area, BA 22)**。關鍵鑑別是「可覆誦」——若無法覆誦則為傳導型失語症。",
+      "detail": "## 失語症 (Aphasia) 的鑑別診斷\n\n### 核心概念\n\n失語症依**三個核心向度**鑑別：\n1. **流暢度 (Fluency)**：自發性語句是否流暢\n2. **理解力 (Comprehension)**：能否聽懂指令\n3. **覆誦 (Repetition)**：能否覆誦句子\n\n### 失語症分類表（經典）\n\n| 類型 | 流暢度 | 理解 | 覆誦 | 病灶 |\n|---|---|---|---|---|\n| **Broca** | **不流暢** | 好 | 差 | 後下額葉 (BA 44, 45) |\n| **Wernicke** | **流暢** | **差** | **差** | **後上顳葉 (BA 22)** |\n| Conduction | 流暢 | 好 | **差** | Arcuate fasciculus |\n| Transcortical motor | 不流暢 | 好 | **好** | 前上額葉 |\n| Transcortical sensory | 流暢 | 差 | **好** | 顳頂交界 |\n| Mixed transcortical | 不流暢 | 差 | **好** | 分水嶺區域 |\n| **Global** | 不流暢 | 差 | 差 | 左大腦半球大範圍 |\n| Anomic | 流暢 | 好 | 好 | 後下顳葉或角回 |\n\n### 本病例分析\n\n| 特徵 | 意義 |\n|---|---|\n| **流暢自發性語句** | Fluent aphasia |\n| **語意型錯誤 (semantic paraphasia)** | 典型 Wernicke |\n| **無法講出物品名稱 (anomia)** | 全部失語症都有，但 Wernicke 尤其嚴重 |\n| **覆誦語意錯誤多** | Wernicke 覆誦也差（與傳導型鑑別）|\n| **理解困難** | Wernicke 的核心特徵 |\n\n→ **Wernicke's aphasia** → **後上顳葉 (posterior superior temporal gyrus, BA 22)**\n\n### 各選項分析\n\n**(A) 正確**（本題答案）。**後上顳葉 (Wernicke's area)**：\n- 位置：左 (優勢側) 後上顳葉，BA 22\n- 血液供應：MCA inferior division (下分支)\n- 病變 → Wernicke's aphasia：流暢、空話多、理解差、覆誦差\n- 合併：右上象限視野缺損（temporal Meyer's loop）\n- 病人常不自知語言問題（anosognosia）\n\n**(B) 錯誤**。**後下顳葉**：\n- 相關於命名 (naming)\n- 孤立病灶 → **Anomic aphasia**（僅命名困難，其他大致正常）\n- 不會有明顯理解困難或語意錯誤\n\n**(C) 錯誤**。**前上額葉**：\n- 病灶 → **Transcortical motor aphasia**\n- 特徵：不流暢 + 理解好 + **覆誦好**\n- 題目病人**流暢**，不符合\n\n**(D) 錯誤**。**後上頂葉**：\n- 屬非語言優勢區\n- 病灶較可能造成**半側忽略、失用症、空間認知障礙**\n- 不是典型失語症好發區\n\n**(E) 錯誤**。**顳頂葉 (temporoparietal)**：\n- 病灶 → **Transcortical sensory aphasia**\n- 特徵：流暢 + 理解差 + **覆誦好**（！與 Wernicke 的關鍵差別）\n- 題目病人**覆誦差**，不符合\n\n### Wernicke's Aphasia 臨床特徵\n\n**語言表現**：\n- **流暢但空洞**（speaks a lot but makes little sense）\n- **Neologisms**（新詞、無意義字）\n- **語意性錯誤 (semantic paraphasia)**：「叉子」說成「鉛筆」（意義相關）\n- **字詞性錯誤 (phonemic paraphasia)**：「叉子」說成「差子」\n- **Jargon speech**：一連串無意義聲音但語調正常\n- 嚴重者完全無法溝通\n\n**理解力**：\n- **聽覺理解嚴重受損**\n- 無法執行口頭指令（除非非常簡單）\n- 閱讀理解也多受損\n\n**其他**：\n- 病人**常不自知**（沒有自我意識到語言錯誤）\n- **情緒反應**：可能煩躁、妄想、激動\n- **預後**：差於 Broca（因無法理解治療指令）\n\n### 神經解剖記憶口訣\n\n```\n      前 (Broca)         後 (Wernicke)\n       不流暢               流暢\n       表達差               理解差\n       「說不出」           「聽不懂」\n\n      覆誦差（兩者皆差）\n      \n   中間通路（Arcuate fasciculus）壞掉 = Conduction\n   外圍分水嶺區壞掉 = Transcortical\n```\n\n### 失語症的影像定位\n\n**MCA 上分支 (superior division)**：\n- 供應額葉、下頂葉\n- 病變 → **Broca's aphasia + 右臉/手無力**\n\n**MCA 下分支 (inferior division)**：\n- 供應顳葉、後頂葉\n- 病變 → **Wernicke's aphasia**（少無力）\n\n**MCA 整體阻塞**：\n- 廣泛語言區受損\n- **Global aphasia + 右偏癱 + 右偏盲**\n\n### 失語症的治療\n\n**Wernicke 的治療挑戰**：\n- 病人無法理解治療指示\n- 需要**視覺輔助**（圖卡、手勢、動作）\n- **擴大輔助性溝通 (AAC)**\n- 治療目標先以**功能性溝通**為主\n- SFA (Semantic Feature Analysis) 等技術\n- 可能的長期改善有限\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| Wernicke 病灶 | **後上顳葉** (BA 22) |\n| 流暢度 | **流暢** |\n| 理解 | **差** |\n| 覆誦 | 差（傳導型也差但理解好） |\n| 語意錯誤 | 典型 |\n| 血液供應 | MCA 下分支 |\n| 合併症 | 右上象限視野缺損 |",
+      "sources": [
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 48 Aphasia", "url": null },
+        { "text": "Kirshner's Handbook of Neurologic Speech and Language Disorders", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-048",
+    "year": 112,
+    "session": 1,
+    "number": 48,
+    "category": "腦傷",
+    "question": "下列有關中風後常見之併發症與其處置敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "多種復健治療被建議用於中風後的半邊忽略 (hemi-neglect)，如稜鏡調適療法 (prism adaptation)、追視訓練 (visual scanning training) 及視動刺激 (optokinetic stimulation)" },
+      { "key": "B", "text": "經皮電刺激 (transcutaneous electrical nerve stimulation，TENS) 及腦深層刺激術 (deep brain stimulation，DBS) 可有效治療中風後的中樞性神經疼痛" },
+      { "key": "C", "text": "經診斷中風後複雜性區域疼痛症候群 (complex regional pain syndrome, CRPS) 之病人，口服類固醇、雙磷酸鹽類及鏡像視覺反饋療法 (mirror visual feedback, MVF) 為可治療之選項" },
+      { "key": "D", "text": "神經肌肉電刺激 (neuromuscular electrical stimulation，NMES) 尚未被強烈證實可有效用於治療中風後所產生吞嚥困難之症狀" },
+      { "key": "E", "text": "訂定排尿計畫及骨盆底肌訓練等方式，可有效用於中風後排尿障礙患者" }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "(B) 錯誤。**中樞性中風後疼痛 (CPSP, central post-stroke pain)** 極難治療：首選為 **tricyclics (如 amitriptyline)、gabapentin、pregabalin、lamotrigine** 等藥物；**TENS 與 DBS 的實證效果有限且不一致**。",
+      "detail": "## 中風後併發症與處置\n\n### 核心概念\n\n中風後併發症涵蓋多系統：運動、感覺、認知、吞嚥、膀胱、疼痛、情緒。本題聚焦各種特殊併發症的**實證處置方式**。\n\n### 中樞性中風後疼痛 (Central Post-Stroke Pain, CPSP)\n\n**Dejerine-Roussy syndrome** 是經典代表（丘腦病變）。\n\n| 特徵 | 說明 |\n|---|---|\n| 發生率 | 約 8% 中風病人 |\n| 發病時間 | 中風後**數月**出現（非立即） |\n| 病灶位置 | 任何感覺路徑上（丘腦最典型、也可腦幹、皮質） |\n| 性質 | **燒灼、電擊、撕裂、冷痛**、**allodynia** |\n| 誘發 | 輕觸、冷熱、情緒 |\n\n**治療選項（實證強度由高至低）**：\n\n| 方法 | 實證等級 |\n|---|---|\n| **三環抗鬱劑 (TCA, amitriptyline)** | **A**（首選）|\n| **Gabapentin/Pregabalin** | A |\n| **Lamotrigine** | B |\n| **Fluvoxamine** | B |\n| 類鴉片 | C（不建議長期）|\n| **rTMS (重複性經顱磁刺激)** | B |\n| **Motor cortex stimulation** | B |\n| **DBS** | **C-D（證據不足）** |\n| **TENS** | **C-D（證據有限）** |\n\n→ TCA 與抗癲癇藥物才是首選，**TENS 與 DBS 並非強實證治療**。\n\n### 各選項分析\n\n**(A) 正確**。**半邊忽略 (hemi-neglect)**：\n- 右頂葉中風常見（左半邊忽略）\n- 治療：\n  - **稜鏡調適 (Prism adaptation)**：強迫視覺重新校正\n  - **視覺掃描訓練 (Visual scanning training)**：強化掃視患側\n  - **視動刺激 (Optokinetic stimulation)**：刺激前庭視覺系統\n  - 限制健側（CIMT for neglect）\n  - 肢體活化 (limb activation)\n  - 鏡像治療\n\n**(B) 錯誤**（本題答案）。這是**本題關鍵**。\n- **CPSP 治療首選是 TCA + gabapentinoid**\n- **TENS 實證有限**（部分病人有效，整體證據不強）\n- **DBS 用於 CPSP 仍屬試驗性治療**，非常規建議\n- 一線是藥物；非侵入性腦刺激 (rTMS) 為輔助；侵入性腦刺激極少數使用\n\n**(C) 正確**。**CRPS 的治療選項**：\n- **口服類固醇**（早期使用有效）\n- **雙磷酸鹽 (bisphosphonates)**：減少骨質流失與疼痛\n- **鏡像視覺反饋療法 (MVF / mirror therapy)**：皮質重組\n- **Gabapentinoids、TCA、SSNRI**\n- **物理治療**：減敏感、分級暴露\n- **交感神經阻斷術**\n- **脊髓刺激術 (SCS)**（頑固型）\n\n**(D) 正確**。**NMES 治療中風後吞嚥困難**：\n- 雖有使用，但**實證不強**\n- Cochrane review (2018) 顯示效果不一致\n- VitalStim 等商用產品臨床上使用，但與傳統治療相比無明顯優勢\n- **不能單獨取代傳統吞嚥訓練**\n- 需配合口腔運動訓練、姿勢調整、飲食質地調整\n\n**(E) 正確**。**中風後排尿障礙的治療**：\n- **定時排尿 (timed voiding)**\n- **膀胱訓練 (bladder training)**\n- **骨盆底肌訓練 (Kegel)**\n- **抗膽鹼藥 (oxybutynin, solifenacin)**（若逼尿肌過度活動）\n- **生物回饋**\n- 這些非藥物介入的實證佳\n\n### 中風各種疼痛症候群鑑別\n\n| 類型 | 病灶 | 特徵 |\n|---|---|---|\n| **CPSP** | 感覺路徑 | 燒灼痛、allodynia、延遲發病 |\n| **肩痛 (hemiplegic shoulder)** | 偏癱側 | 盂肱半脫位、肩痛、活動受限 |\n| **CRPS I (肩手症候群)** | 偏癱上肢 | 手腕腫、疼痛、血管性變化 |\n| **痙攣性疼痛** | 上運動神經元 | 痙攣相關的肌肉痛 |\n| **頭痛** | 中風本身 | 偶有持續性頭痛 |\n\n### 中風後憂鬱\n\n另一個常見併發症（見下題）：\n- 發生率 30-40%\n- 影響復健積極度\n- **SSRI 為首選**\n- 若合併冷漠：**methylphenidate**\n\n### 中風後吞嚥困難處理\n\n- **評估**：VFSS (video fluoroscopy)、FEES\n- **飲食調整**：thickener、質地\n- **姿勢調整**：chin-tuck、head rotation\n- **吞嚥動作訓練**：Mendelsohn、Masako\n- **NMES**：輔助（實證不強）\n- **口腔運動**：舌、唇肌力\n- 嚴重者 NG、PEG\n\n### 中風後泌尿問題\n\n| 類型 | 比例 |\n|---|---|\n| **急迫性失禁 (urge incontinence)** | 最常見 |\n| 功能性失禁（認知、無法走到廁所）| 常見 |\n| 尿滯留（急性期）| 10-30% |\n| 神經性膀胱（皮質/皮質下）| 看病灶 |\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| CPSP 首選 | **TCA、gabapentinoids** |\n| CPSP **不是首選** | **TENS、DBS** |\n| Hemi-neglect | Prism、scanning、OKN |\n| CRPS | 類固醇、雙磷酸、MVF |\n| NMES 吞嚥 | 實證**不強** |\n| 排尿障礙 | 時間排尿、Kegel |",
+      "sources": [
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 50 Stroke", "url": null },
+        { "text": "AHA/ASA Guidelines for the Early Management of Stroke, 2019", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-049",
+    "year": 112,
+    "session": 1,
+    "number": 49,
+    "category": "腦傷",
+    "question": "下列有關中風的各種新趨勢治療敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "動作執行、觀察或想像等能力乃藉由鏡像神經系統來控制，中風患者因執行動作能力受損但觀察和想像力的能力仍存在，因此虛擬實境復健治療之原理在於利用觀察和想像能力來進行訓練" },
+      { "key": "B", "text": "體感覺電刺激原理為使用貼於頭皮的電極，經由陽極到陰極的少量電流進行電療刺激以增加自主動作、減少肌肉張力並促進體感覺復原" },
+      { "key": "C", "text": "機器人輔助動作治療於中風患者的上肢及下肢皆可使用，該項治療的原理為藉由感覺回饋及機器補助活動以執行肢體被動或輔助之活動，並可藉由觸覺回饋做動作矯正" },
+      { "key": "D", "text": "重複性經顱磁刺激為一非侵入性治療，原理乃藉由磁脈衝引發腦部神經線路上的微量電流以達療效，且據研究顯示，即使超過黃金復健期，透過合併傳統職能治療，仍可改善中風患者之上肢動作及功能" },
+      { "key": "E", "text": "身體重量支撐跑步機訓練之機制為藉由刺激在脊髓中樞移動的模式產生器 (locomotor central pattern generator, CPG)，以促進復原並提升心肺能力及體適能" }
+    ],
+    "answer": "B",
+    "explanation": {
+      "summary": "(B) 錯誤。題目描述的是**跨顱直流電刺激 (tDCS)** 的原理（陽極陰極頭皮電流），但**「體感覺電刺激 (sensory electrical stimulation)」**是貼在**肢體上**的周邊感覺輸入電刺激，不是頭皮電極。兩者混淆。",
+      "detail": "## 中風新趨勢治療\n\n### 核心概念\n\n中風復健近年有許多新興技術：virtual reality、tDCS/rTMS、機器人、CIMT、mirror therapy、BWSTT 等。各有**作用機制與適應症**的差異，名稱容易混淆。\n\n### 中風新趨勢治療技術總表\n\n| 技術 | 機制 |\n|---|---|\n| **虛擬實境 (VR)** | 利用 mirror neuron 系統，觀察與想像訓練 |\n| **Mirror therapy** | 鏡像視覺回饋激活患側皮質 |\n| **CIMT** | 限制健側、強迫患側使用 |\n| **tDCS** | **頭皮陽極/陰極電流**改變皮質興奮性 |\n| **rTMS** | 磁脈衝引發皮質電流 |\n| **體感覺電刺激 (SES)** | **肢體上**貼片提供周邊感覺輸入 |\n| **NMES** | 刺激運動神經產生收縮 |\n| **機器人輔助治療** | 機器提供輔助+回饋 |\n| **BWSTT** | 跑步機 + 減重輔助，刺激 CPG |\n\n### 各選項分析\n\n**(A) 正確**。**VR 復健的理論基礎**：\n- **鏡像神經元系統 (Mirror Neuron System, MNS)**：Rizzolatti 發現\n- 當**觀察**或**想像**動作時，MNS 會被激活，類似實際執行\n- 中風病人**執行能力受損**（下行運動皮質問題）\n- 但**觀察、想像**能力常保留（感覺運動整合區）\n- VR 利用此原理，透過視覺刺激促進運動皮質活化\n- 促進**neuroplasticity**\n- 動作觀察 (Action Observation Therapy, AOT) 也是此原理\n\n**(B) 錯誤**（本題答案）。這是**本題關鍵**。\n\n**題目描述「貼於頭皮的電極、陽極到陰極電流」**——這是**跨顱直流電刺激 (tDCS)** 的原理，**不是**「體感覺電刺激」！\n\n**名稱與機制的混淆**：\n\n| 技術 | 電極位置 | 機制 |\n|---|---|---|\n| **tDCS** | **頭皮** | 改變皮質興奮性；**陽極興奮、陰極抑制** |\n| **rTMS** | **頭皮 (非接觸)** | 磁場誘發皮質電流 |\n| **Sensory electrical stimulation (SES)** | **肢體** | 周邊感覺輸入 |\n| **NMES** | **肢體** | 運動神經 + 肌肉收縮 |\n| **FES** | **肢體** | 功能性電刺激（如垂足）|\n\n正確的**體感覺電刺激**：\n- 貼在**患側肢體**（如手腕、手指）\n- 提供低強度電流產生**感覺刺激**（不一定造成肌肉收縮）\n- 理論是增加感覺輸入 → 皮質重組 → 改善動作\n- 常合併其他治療（如 CIMT、task-specific training）\n\n題目混淆了**頭皮電流 (tDCS)** 與**肢體感覺刺激 (SES)**。\n\n**(C) 正確**。**機器人輔助治療**：\n- 上肢：MIT-MANUS、ARMEO、InMotion\n- 下肢：Lokomat、G-EO System\n- 機制：\n  - **機器補助**肢體活動（被動→輔助→主動）\n  - **感覺回饋**（視覺、觸覺、本體）\n  - **動作矯正**\n  - **重複大量訓練**\n- 證據等級強（多項 RCT 支持）\n\n**(D) 正確**。**rTMS (重複性經顱磁刺激)**：\n- 非侵入性\n- 磁脈衝 → 頭皮下皮質 → 誘發微量電流\n- **高頻 (≥ 5 Hz)**：興奮皮質\n- **低頻 (≤ 1 Hz)**：抑制皮質\n- 中風治療：\n  - 抑制**對側（未受損）**皮質的過度活動 → 讓患側皮質復原\n  - 或興奮患側皮質\n- **即使超過黃金復健期（6 個月以後）**仍可改善上肢功能\n- 合併傳統 OT 效果更佳\n\n**(E) 正確**。**身體重量支撐跑步機訓練 (BWSTT)**：\n- 使用吊帶支撐部分體重（20-40%）\n- 在跑步機上訓練步態\n- **機制**：\n  - 刺激**脊髓中央模式產生器 (CPG)**\n  - CPG 為脊髓內產生節律性運動模式的神經網路\n  - 即使 supraspinal input 不足，CPG 仍可產生基本步態\n  - 配合提供**task-specific** 訓練\n- 優點：\n  - 可**提早開始**步態訓練（無法獨立行走者也可做）\n  - 大量重複訓練\n  - 提升**心肺能力**\n  - 提升體適能\n\n### tDCS 詳細說明\n\n**原理**：\n- 微弱直流電 (1-2 mA) 通過頭皮\n- 陽極 (anode)：**增加**下方皮質興奮性\n- 陰極 (cathode)：**減少**下方皮質興奮性\n- 不會直接引發動作電位，而是改變神經元的「閾下膜電位」\n\n**臨床應用**：\n- 中風復健（刺激患側運動皮質、抑制對側）\n- 憂鬱、疼痛\n- 安全、便宜、易攜帶\n\n### CIMT (Constraint-Induced Movement Therapy)\n\n- 健側戴手套約束\n- 強迫患側大量使用（5-6 hr/day × 2-3 週）\n- 核心原則：對抗「習得性不使用 (learned non-use)」\n- 預後最好於輕-中度運動功能缺損者\n\n### 中風新治療的實證強度\n\n| 治療 | 實證強度 |\n|---|---|\n| **CIMT** | A（強實證） |\n| 機器人（上肢） | A |\n| rTMS | B |\n| VR | B |\n| Mirror therapy | B |\n| BWSTT | B |\n| tDCS | B |\n| SES | C |\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| VR 原理 | Mirror neuron system |\n| **tDCS** | **頭皮陽極陰極** |\n| 體感覺電刺激 | **肢體**周邊刺激 |\n| 機器人治療 | 輔助+感覺回饋 |\n| rTMS | 非侵入、磁脈衝 |\n| BWSTT 機制 | **脊髓 CPG** |\n| 超過黃金期 | rTMS 仍可改善 |",
+      "sources": [
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 50 Stroke", "url": null },
+        { "text": "AHA/ASA Guidelines for Stroke Rehabilitation and Recovery, 2016", "url": null }
+      ]
+    }
+  },
+  {
+    "id": "112-1-050",
+    "year": 112,
+    "session": 1,
+    "number": 50,
+    "category": "腦傷",
+    "question": "下列有關中風後產生排便障礙之機轉及其治療敘述，何者錯誤？",
+    "imageUrl": null,
+    "choices": [
+      { "key": "A", "text": "中風後排便障礙常見於腸內神經的控制異常，包含反射的抑制、隨意肌 (肛門括約肌) 的控制和對於腸道感覺的受損" },
+      { "key": "B", "text": "飲食調整的建議除膳食纖維的攝取，亦須注意足夠的水分並減少咖啡因食物的攝取。因咖啡因利尿作用將導致水分的排出，以致減少糞便中的水分" },
+      { "key": "C", "text": "鹽類緩瀉劑如 magnesium oxide，作用快速，約三十分鐘至三小時。可用於緩解急性便秘。然須謹慎使用於腎功能及心臟功能不佳之病患" },
+      { "key": "D", "text": "刺激性緩瀉劑 (stimulant laxatives) 作用在 Meissner plexus 神經叢，透過改變水分與電解質的分泌達其療效。作用時間需六至十二小時，但長期使用會造成瀉藥性結腸 (cathartic colon)" },
+      { "key": "E", "text": "評估因共病所需服用之藥物是否可能造成便秘，如 anti-depressant 的 SSRI、anti-hypertensives 的 hydralazine、analgesics 的 tramadol、anti-convulsant 的 valproic acid 等等" }
+    ],
+    "answer": "D",
+    "explanation": {
+      "summary": "(D) 錯誤。**刺激性緩瀉劑**（如 bisacodyl、senna）作用於**Auerbach plexus (肌間神經叢 / myenteric plexus)**，刺激**大腸平滑肌蠕動**。Meissner plexus 是**submucosal plexus (黏膜下)**，主要調控**分泌**。兩者位置與功能不同。",
+      "detail": "## 中風後排便障礙 (Neurogenic Bowel)\n\n### 核心概念\n\n中風後排便障礙涉及：中樞控制異常、腸道感覺受損、肛門括約肌控制、活動量不足、藥物副作用、飲食問題。治療為**綜合性策略**。\n\n### 腸道神經系統 (Enteric Nervous System)\n\n**兩大主要神經叢**：\n\n| 神經叢 | 位置 | 主要功能 |\n|---|---|---|\n| **Auerbach plexus (Myenteric plexus)** | 縱肌與環肌之間 | **控制腸蠕動 (motility)** |\n| **Meissner plexus (Submucosal plexus)** | 黏膜下層 | **控制分泌 (secretion)、吸收、局部血流** |\n\n### 各選項分析\n\n**(A) 正確**。中風後排便障礙的機轉：\n- **上運動神經元型**（大部分中風）：\n  - 失去大腦皮質的排便抑制 → 反射性排便（urge）\n  - 肛門括約肌可能失去自主控制\n- **腸道感覺**可能受損\n- 活動量不足也是重要因素\n\n**(B) 正確**。飲食調整：\n- **膳食纖維**：每日 25-30 g（水溶性 + 不溶性）\n- **足夠水分**：每日 1.5-2 L（避免纖維造成硬便）\n- **減少咖啡因**：\n  - 咖啡因雖可短暫刺激腸蠕動\n  - 但其**利尿作用**使水分排出 → **糞便水分減少** → 便秘惡化\n- 規律運動\n- 固定排便時間\n\n**(C) 正確**。**鹽類緩瀉劑 (Osmotic/Saline laxatives)**：\n- 代表：**Magnesium oxide (MgO)**、**Magnesium hydroxide**、**Magnesium citrate**、**PEG (polyethylene glycol)**\n- 機制：高滲透壓**將水分吸入腸腔** → 軟化糞便、增加體積\n- 作用時間：**30 分鐘至 3 小時**（較快）\n- **腎功能不佳者慎用**：鎂離子無法排出 → **高血鎂**（嗜睡、低血壓、心律不整）\n- **心衰竭、老人慎用**：體液轉移可能影響心肺狀態\n- 是住院病人常見首選\n\n**(D) 錯誤**（本題答案）。這是**本題關鍵**。**刺激性緩瀉劑 (Stimulant laxatives)**：\n\n**代表藥物**：\n- **Bisacodyl** (Dulcolax)\n- **Senna** (Senokot)\n- **Castor oil**\n- **Sodium picosulfate**\n\n**機制（題目錯誤點）**：\n- 作用於**Auerbach plexus (肌間神經叢)**\n- **直接刺激腸道平滑肌蠕動**\n- **而非**題目說的 Meissner plexus（那是管分泌的）\n- 部分藥物（如 bisacodyl）確實也會改變水分電解質分泌\n- 但**主要作用機制是促進蠕動**\n- **作用時間**：口服 **6-12 小時**；肛栓 **15-60 分鐘**\n\n**長期使用的副作用**：\n- **瀉藥性結腸 (cathartic colon)**：結腸張力下降、擴張、腸內反射消失\n- 依賴性 (laxative dependence)\n- 電解質失衡（低鉀）\n- 建議**間歇使用**、非長期首選\n\n**(E) 正確**。**造成便秘的常見藥物**：\n\n| 類別 | 藥物例 |\n|---|---|\n| **抗憂鬱藥** | TCA、**SSRI**（雖較輕但也有）、SNRI |\n| **抗高血壓** | **Hydralazine**、CCB（verapamil）、diuretics |\n| **鎮痛藥** | 類鴉片、**Tramadol** |\n| **抗癲癇** | **Valproic acid**、phenytoin、gabapentin |\n| **抗膽鹼** | Anticholinergics |\n| **鈣離子、鐵** | 常用補充品 |\n| **抗組織胺** | 舊型（diphenhydramine）|\n\n中風病人常合併多種這些藥物，便秘加重。評估藥物是重要步驟。\n\n### 中風後便秘的處置策略\n\n**第一步：非藥物**\n- 飲食：纖維 + 水分\n- 運動：走路、腹部按摩\n- 排便訓練：晨起後（胃-結腸反射）、固定時間\n- 姿勢：腳踏凳使髖屈曲（squatting position）\n\n**第二步：藥物階梯**\n\n| 階層 | 藥物 |\n|---|---|\n| 1. 膨脹性 | **Psyllium, methylcellulose** |\n| 2. 滲透性 | **PEG, lactulose, MgO** |\n| 3. 軟便 | Docusate |\n| 4. 刺激性 | **Bisacodyl, senna** |\n| 5. 新藥 | Lubiprostone, linaclotide, prucalopride |\n\n**第三步：物理介入**\n- 手指刺激 (digital stimulation)\n- 灌腸 (enema)\n- 直腸栓劑 (suppository)\n- 手動掏便 (manual evacuation)（只有必要時）\n\n### 腸道神經叢詳細比較\n\n| 項目 | Myenteric (Auerbach) | Submucosal (Meissner) |\n|---|---|---|\n| 位置 | 縱肌與環肌間 | 黏膜下層 |\n| 功能 | **蠕動、節律** | **分泌、吸收** |\n| 調控 | 肌肉收縮 | 腸內容物環境 |\n| 重要藥物作用 | **Bisacodyl, senna** | Secretory agents (lubiprostone) |\n\n### 考點速記\n\n| 要點 | 內容 |\n|---|---|\n| Myenteric (Auerbach) | **蠕動** |\n| Submucosal (Meissner) | **分泌** |\n| 刺激性緩瀉劑作用於 | **Auerbach** |\n| MgO 慎用 | 腎、心 |\n| 咖啡因 | **減少**糞便水分 |\n| 常見便秘藥 | opioid、TCA、CCB、AED |\n| 瀉藥性結腸 | 長期刺激性緩瀉劑副作用 |",
+      "sources": [
+        { "text": "Braddom's Physical Medicine and Rehabilitation, 6th ed., Ch. 50 Stroke", "url": null },
+        { "text": "Guyton & Hall Textbook of Medical Physiology, 14th ed., Ch. Gastrointestinal Physiology", "url": null }
+      ]
+    }
+  }
 ];
 
 /* =========================================================================
